@@ -8,8 +8,6 @@ class User < ActiveRecord::Base
   has_many :ratings
 
   has_attached_file :profile_photo,
-                    :storage => :s3,
-                    :s3_credentials => Proc.new{|a| a.instance.Aws::s3_credentials }
                     :styles => {  :medium => "300x300>",
                                   :thumb => "100x100>" },
                                   :default_url => "/images/:style/missing.png"
