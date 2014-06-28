@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140628153232) do
+ActiveRecord::Schema.define(version: 20140628172547) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,18 +39,22 @@ ActiveRecord::Schema.define(version: 20140628153232) do
   create_table "meals", force: true do |t|
     t.string   "comment"
     t.string   "ingredients"
-    t.integer  "calories"
-    t.integer  "fat"
-    t.integer  "protein"
-    t.integer  "fiber"
-    t.integer  "sugar"
-    t.integer  "sodium"
-    t.integer  "carbs"
+    t.float    "calories"
+    t.float    "fat"
+    t.float    "protein"
+    t.float    "fiber"
+    t.float    "sugar"
+    t.float    "sodium"
+    t.float    "carbs"
     t.float    "rating"
     t.integer  "user_id"
     t.integer  "goal_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "meal_photo_file_name"
+    t.string   "meal_photo_content_type"
+    t.integer  "meal_photo_file_size"
+    t.datetime "meal_photo_updated_at"
   end
 
   create_table "ratings", force: true do |t|
@@ -62,12 +66,12 @@ ActiveRecord::Schema.define(version: 20140628153232) do
   end
 
   create_table "users", force: true do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                      default: "", null: false
+    t.string   "encrypted_password",         default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",              default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -78,6 +82,10 @@ ActiveRecord::Schema.define(version: 20140628153232) do
     t.integer  "company_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "profile_photo_file_name"
+    t.string   "profile_photo_content_type"
+    t.integer  "profile_photo_file_size"
+    t.datetime "profile_photo_updated_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
