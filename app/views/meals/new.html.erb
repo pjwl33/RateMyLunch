@@ -4,7 +4,8 @@
 
   <div class="field">
     <%= f.label :goal_id %>
-    <%= f.select :goal_id, options_for_select(Goal.all) %>
+    <% goal_array = Goal.all.map { |g| [g.name, g.id] } %>
+    <%= f.select :goal_id, options_for_select(goal_array) %>
   </div>
 
   <div class="field">
@@ -19,7 +20,7 @@
 
   <div class="field">
     <%= f.label :meal_photo %>
-    <%= f.file_field :meal_photo %>
+    <%= f.file_field :meal_photo, required: true %>
   </div>
 
   <div class="action">

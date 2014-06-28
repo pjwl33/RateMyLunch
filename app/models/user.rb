@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
 
   belongs_to :company
   has_many :ratings
+  has_many :meals
 
   has_attached_file :profile_photo,
                     :styles => {  :medium => "300x300>",

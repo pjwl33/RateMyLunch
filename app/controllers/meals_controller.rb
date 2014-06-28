@@ -2,6 +2,10 @@ class MealsController < ApplicationController
 
   before_action :authenticate_user!, only: [:new, :create]
 
+  def show
+    @meal = Meal.find(params[:id])
+  end
+
   def new
     @goals = Goal.all
     @meal = Meal.new
