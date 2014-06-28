@@ -1,0 +1,23 @@
+.wrap {
+  max-width: 85%;
+  margin: 2em auto;
+}
+
+.meal-info {
+  background: #333;
+}
+
+.name {
+  font-size: 2em;
+  letter-spacing: 0.05em;
+  font-weight: bold;
+}
+
+.meal-image {
+  border-radius: 50%;
+  box-shadow: 0px 0px 3px #333;
+}
+
+.meal-stats {
+  display: inline;
+}
