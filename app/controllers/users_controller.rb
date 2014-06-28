@@ -5,7 +5,6 @@ class UsersController < ApplicationController
     @user = current_user
     @meals = @user.meals.order(created_at: :desc)
     @meal = @meals.first
-    @last_meal = @user.meals.last || nil
   end
 
 end
