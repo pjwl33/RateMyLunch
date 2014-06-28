@@ -1,13 +1,16 @@
 (function(){
     console.log('loaded bro!');
     $('#vote').click(startVoting);
-
 })();
 
 function startVoting(){
   $('.show-template').empty();
   $('.vote-template').css('visibility', 'visible');
-  grabMeals();
+  var meals = grabMeals();
+  $(document).ajaxComplete(function(){
+    // appendMeal(meals[0]);
+    console.log(meals);
+  });
 }
 
 function grabMeals(){
@@ -17,8 +20,13 @@ function grabMeals(){
     dataType: 'JSON'
   }).done(function(data){
     console.log(data);
-    for(var i = 0; i < data.length; i++){
-      console.log(data[i]);
-    }
+    return data;
   });
+}
+
+function appendMeal(meal){
+  $('#vote-meal-pic').append('<p>pic</p>');
+  $('#vote-meal-goalname').append('<p><p>').html(meal["goal_id"]);
+  $('#vote-meal-comment').append('<p></p>').html(meal["comment"]);
+  $('#vote-meal-ingredients').append('<p></p>').html(meal["ingredients"]);
 }
