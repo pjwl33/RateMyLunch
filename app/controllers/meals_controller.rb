@@ -3,7 +3,11 @@ class MealsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
 
   def show
-    @meal = Meal.find(params[:id])
+    begin
+     @meal = Meal.find(params[:id])
+    rescue
+      redirect_to root_path, notice: "That meal doesn't exist!"
+    end
   end
 
   def new
