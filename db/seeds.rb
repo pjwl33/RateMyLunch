@@ -51,4 +51,8 @@
 #   end
 # end
 
+# Meal.all.each do |meal|
+#   Company.find_by(name: "HAM Corporation").meals << meal
+# end
+
 
