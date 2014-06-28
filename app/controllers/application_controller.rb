@@ -12,4 +12,5 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:account_update) << :name << :goal_description << :profile_photo
   end
 
+
 end

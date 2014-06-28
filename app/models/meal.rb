@@ -1,6 +1,7 @@
 class Meal < ActiveRecord::Base
-	has_many :ratings
+  has_many :ratings
   belongs_to :goal
+	belongs_to :user
 
   has_attached_file :meal_photo,
                     :styles => {  :medium => "300x300>",
@@ -37,7 +38,6 @@ class Meal < ActiveRecord::Base
 
     return Sensum.nutrition_lookup(ingredients_array)
   end
-
 end
 
 
