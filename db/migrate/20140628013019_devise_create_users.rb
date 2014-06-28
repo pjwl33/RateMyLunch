@@ -32,6 +32,8 @@ class DeviseCreateUsers < ActiveRecord::Migration
 
       t.boolean :admin
 
+      t.references :company
+
       t.timestamps
     end
 
