@@ -1,7 +1,13 @@
 <div class="row">
-  <p><%= current_user.name %></p>
-  <button id="vote">Vote Now Bitch</button>
-  <%= image_tag @user.profile_photo.url(:medium) %>
+  <div class="small-10 columns">
+    <p><%= current_user.name %></p>
+    <button id="vote">Vote Now Bitch</button>
+    <%= image_tag @user.profile_photo.url(:medium) %>
+  </div>
 </div>
-
-<div class="row"></div>
+<hr>
+<div class="row">
+  <div class="small-10 columns">
+    <%= image_tag @last_meal.meal_photo.url(:medium) %>
+  </div>
+</div>

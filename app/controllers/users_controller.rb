@@ -3,6 +3,7 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
+    @last_meal = @user.meals.last
   end
 
 end
