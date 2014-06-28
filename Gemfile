@@ -34,3 +34,6 @@ gem 'dotenv-rails', '~> 0.11.1'
 gem 'puma', '~> 2.8.2'
 gem 'jquery-ui-rails', '~> 4.2.1'
 gem 'font-awesome-rails', '~> 4.1.0.0'
+gem 'foundation-rails'
+
+
