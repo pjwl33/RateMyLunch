@@ -1,7 +1,8 @@
 class Meal < ActiveRecord::Base
   has_many :ratings
   belongs_to :goal
-	belongs_to :user
+  belongs_to :user
+	belongs_to :company
 
   has_attached_file :meal_photo,
                     :styles => {  :medium => "300x300>",

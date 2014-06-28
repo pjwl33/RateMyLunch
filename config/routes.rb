@@ -5,7 +5,4 @@ Rails.application.routes.draw do
   resources :meals, except: [:edit, :update, :destroy]
   resources :ratings, only: [:index, :create, :destroy]
   get '/get_meals' => 'meals#grab_meals'
-
-
-
 end
