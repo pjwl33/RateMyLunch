@@ -31,7 +31,6 @@ class Meal < ActiveRecord::Base
 
     # flatten array
     ingredients_array.flatten!
-
     ingredients_array.each do |string|
       string.gsub!(" ", "+")
     end
