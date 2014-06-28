@@ -1,4 +1,11 @@
 <div class="rating stars">
-	<%= fa_icon 'camera-retro' %>
+	<% @rating.round(1) %> 
+	<% decimal = @rating.to_s.last.to_i %>
+	<%= @rating.floor.times do %> 
+		<%= fa_icon 'fa-star', class: 'yellow-stars' %>
+	<% end %>
+	<% if decimal >= 5 %>
+		<%= fa_icon 'fa-star-half', class: 'yellow-stars' %> 
+	<% end %>
 	test test
 </div>
