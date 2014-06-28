@@ -31,6 +31,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       # t.datetime :locked_at
 
       t.boolean :admin
+      t.user_goal_desc :text
 
       t.references :company
 

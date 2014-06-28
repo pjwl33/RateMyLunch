@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  comment: MyString
+  ingredients: MyString
+  calories: MyString
+  fat: MyString
+  protein: MyString
+  fiber: MyString
+
+two:
+  comment: MyString
+  ingredients: MyString
+  calories: MyString
+  fat: MyString
+  protein: MyString
+  fiber: MyString
