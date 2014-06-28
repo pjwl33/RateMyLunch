@@ -3,10 +3,12 @@ class CreateLunches < ActiveRecord::Migration
     create_table :lunches do |t|
       t.string :comment
       t.string :ingredients
-      t.string :calories
-      t.string :fat
-      t.string :protein
-      t.string :fiber
+      t.integer :calories
+      t.integer :fat
+      t.integer :protein
+      t.integer :fiber
+      t.integer :sugar
+      t.integer :sodium
 
       t.timestamps
     end
