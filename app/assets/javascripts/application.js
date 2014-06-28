@@ -13,6 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
+//= require underscore-min
+//= require angular-min
 //= require turbolinks
 //= require_tree .
 
