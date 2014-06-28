@@ -1,4 +1,4 @@
-class CreateLunches < ActiveRecord::Migration
+class CreateMeals < ActiveRecord::Migration
   def change
     create_table :lunches do |t|
       t.string :comment
