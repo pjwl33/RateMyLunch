@@ -3,8 +3,10 @@ class Rating < ActiveRecord::Base
 	belongs_to :user
 	belongs_to :meal
 
-	validate :check_for_duplicates
+	validate :check_for_duplicates, :on => :create
+	# before_create :check_for_duplicates
 	after_save :update_meal_rating
+	after_update :update_meal_rating
 	after_destroy :update_meal_rating
 
 	def update_meal_rating
@@ -13,7 +15,7 @@ class Rating < ActiveRecord::Base
 		if total_ratings == 1
 			self.meal.rating = self.vote_rating.to_f
 		else
-			total_score = 0
+			total_score = 0.0
 			self.meal.ratings.each do |rating|
 				total_score += rating.vote_rating
 			end
@@ -24,7 +26,7 @@ class Rating < ActiveRecord::Base
 	private
 
 	def check_for_duplicates
-		meal = Meal.find(self.meal.id)
+		meal = self.meal
 		ratings = meal.ratings
 		user = self.user
 		ratings.each do |rating|

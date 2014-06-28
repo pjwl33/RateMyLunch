@@ -54,6 +54,13 @@ describe Rating do
 
 			@alex_rating.destroy
 			expect(@stephen_meal.rating).to eq(4)
+
+			# @stephen_meal.reload
+			@paul_rating.update!(vote_rating: 5)
+			@jason_rating.update!(vote_rating: 5)
+			# @stephen_meal.reload
+			expect(@stephen_meal.rating).to eq(5)
+
 		end
 	end
 	
