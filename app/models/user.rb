@@ -6,4 +6,7 @@ class User < ActiveRecord::Base
 
   belongs_to :company
 	has_many :ratings
+	has_many :meals
+
+
 end
