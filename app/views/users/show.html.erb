@@ -1,5 +1,7 @@
-<p><%= current_user.name %></p>
+<div class="row">
+  <p><%= current_user.name %></p>
+  <button id="vote">Vote Now Bitch</button>
+  <%= image_tag @user.profile_photo.url(:medium) %>
+</div>
 
-
-
-<%= image_tag @user.profile_photo.url(:medium) %>
+<div class="row"></div>
