@@ -14,9 +14,10 @@
 <div class="small-12 columns" align="center"> 
 	<% if @meal %> 
 		<h2>Today's Meal:</h2>
-		<%= image_tag @meal.meal_photo.url(:medium) %>
+		<%= image_tag @meal.meal_photo.url(:medium), :class => "todays-meal" %>
 		<div>
 			Rating: <%= @meal.rating ? @meal.rating : "No Ratings Yet" %>
+			<%= render 'star' %>
 		</div>
 	<% else %>
 		<div class="chef-hat">
