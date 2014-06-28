@@ -4,6 +4,9 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  belongs_to :company
+  has_many :ratings
+
   has_attached_file :profile_photo, :styles => {  :medium => "300x300>",
                                                   :thumb => "100x100>" },
                                                   :default_url => "/images/:style/missing.png"
