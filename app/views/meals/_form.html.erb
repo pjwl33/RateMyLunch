@@ -1,0 +1,14 @@
+<%= form_for @meal do |f| %>
+
+  <%= f.label :comment %>
+  <%= f.text_field :comment %>
+
+  <%= f.label :ingredients %>
+  <%= f.text_field :ingredients %>
+
+  <%= f.label :goals %>
+  <%= f.text_field :goals %>
+
+  <%= f.submit %>
+
+<% end %>
