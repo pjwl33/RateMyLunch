@@ -5,5 +5,10 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   belongs_to :company
-	has_many :ratings
+  has_many :ratings
+
+  has_attached_file :profile_photo, :styles => {  :medium => "300x300>",
+                                                  :thumb => "100x100>" },
+                                                  :default_url => "/images/:style/missing.png"
+  validates_attachment_content_type :profile_photo, :content_type => /\Aimage\/.*\Z/
 end
