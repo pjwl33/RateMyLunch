@@ -1,14 +1,9 @@
 class Sensum
 
-  API_PATH = 'ingredient/getIngredientInformation?'
-  API_ID = 'appId=e4d47e80&'
-  API_KEY = 'appKey=hackdining&'
-  LANGUAGE = 'language=en'
-
   def self.nutrition_lookup(ingredient_array)
     data = {}
     ingredient_array.each do |food|
-      response = HTTParty.get("http://www.klappo.com:8080/jesse/server/#{API_PATH}#{API_ID}#{API_KEY}" + "ingredientLabel=#{food}&#{LANGUAGE}")
+      response = HTTParty.get("http://www.klappo.com:8080/jesse/server/#{ENV['API_PATH']}#{ENV['API_ID']}#{ENV['API_KEY']}" + "ingredientLabel=#{food}&#{ENV['LANGUAGE']}")
       response["ingredientInfo"].each do |var|
         type = var["idOfTheNutrien"]
         value = var["value"]
