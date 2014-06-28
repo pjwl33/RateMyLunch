@@ -1,14 +1,27 @@
-<%= form_for @meal do |f| %>
+<%= form_for(@meal, html: { multipart: true }) do |f| %>
 
-  <%= f.label :comment %>
-  <%= f.text_area :comment %>
+  <div class="field">
+    <%= f.label :comment %>
+    <%= f.text_area :comment %>
+  </div>
 
-  <%= f.label :ingredients %>
-  <%= f.text_area :ingredients %>
+  <div class="field">
+    <%= f.label :ingredients %>
+    <%= f.text_area :ingredients %>
+  </div>
 
-  <%= f.label :goals %>
-  <%= f.select :goal_id, @goals.collect {|goal| [goal.name]} %>
+  <div class="field">
+    <%= f.label :goals %>
+    <%= f.select :goal_id, @goals.collect {|goal| [goal.name]} %>
+  </div>
 
-  <%= f.submit %>
+  <div class="field">
+    <%= f.label :meal_photo %>
+    <%= f.file_field :meal_photo, required: true %>
+  </div>
+
+  <div class="action">
+    <%= f.submit %>
+  </div>
 
 <% end %>

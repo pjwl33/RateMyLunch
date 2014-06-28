@@ -6,9 +6,11 @@ class User < ActiveRecord::Base
 
   belongs_to :company
   has_many :ratings
+  has_many :meals
 
-  has_attached_file :profile_photo, :styles => {  :medium => "300x300>",
-                                                  :thumb => "100x100>" },
-                                                  :default_url => "/images/:style/missing.png"
+  has_attached_file :profile_photo,
+                    :styles => {  :medium => "300x300>",
+                                  :thumb => "100x100>" },
+                                  :default_url => "https://http://s3.amazonaws.com/beattadashi/users/profile_photos/000/000/005"
   validates_attachment_content_type :profile_photo, :content_type => /\Aimage\/.*\Z/
 end
