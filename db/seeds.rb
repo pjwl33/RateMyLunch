@@ -29,3 +29,7 @@ u6 = User.create(email: 'spencer@ham.com', password: 'password',
                  goal_description: "Up my 16-pack to a 20-pack", admin: false)
 
 c1.users << u1 << u2 << u3 << u4 << u5 << u6
+
+Goal.create(name: 'Lose Weight', desc: 'Meals that encourage weight loss')
+Goal.create(name: 'Eat Healthy', desc: 'Well-balanced meals that hit all of the major food groups')
+Goal.create(name: 'Gain Muscle', desc: 'High protein, lean meals to help build muscle')
