@@ -17,6 +17,9 @@ group :development, :test do
   gem 'pry-rails', '~> 0.3.2'
   gem 'faker', '~> 1.3.0'
   gem 'quiet_assets', '~> 1.0.2'
+  gem 'rspec-rails', '~> 3.0.0.beta'
+  gem 'shoulda-matchers', '~> 2.6.1'
+  gem 'capybara', '~> 2.2.1'
 end
 
 group :production do
