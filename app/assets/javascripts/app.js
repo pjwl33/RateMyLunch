@@ -5,6 +5,6 @@
 })();
 
 function startVoting(){
-  $('body').empty();
-  $('body').append('<p>Vote baby!</p>');
+  $('.show-template').empty();
+  $('.vote-template').css('visibility', 'visible');
 }
