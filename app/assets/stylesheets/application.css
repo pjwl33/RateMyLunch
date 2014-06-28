@@ -15,3 +15,11 @@
  *= require foundation_and_overrides
 
  */
+
+.vote-template {
+  visibility: hidden;
+}
+
+.white-text {
+  color: white;
+}
