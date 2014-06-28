@@ -1,39 +1,10 @@
 source 'https://rubygems.org'
 
-<<<<<<< HEAD
-gem 'rails', '4.1.0'
-=======
 gem 'rails', '4.1.1'
->>>>>>> 6303b1b6b8468f78a8774ec4279fd1d3f0a8b2fd
 gem 'pg'
 gem 'sass-rails', '~> 4.0.3'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
-<<<<<<< HEAD
-gem 'jquery-rails'
-gem 'jbuilder', '~> 2.0'
-gem 'sdoc', '~> 0.4.0', group: :doc
-
-group :development do
-  gem 'pry'
-  gem 'dotenv-rails'
-  gem 'pry-rails'
-  gem 'better_errors'
-  gem 'binding_of_caller'
-  gem 'rack-mini-profiler'
-end
-
-group :development, :test do
-  gem 'rspec-rails', '~> 3.0.0.beta'
-  gem 'shoulda-matchers', require: false
-  gem 'capybara'
-  gem 'simplecov', '~> 0.7.1'
-end
-
-group :production do
-  gem 'rails_12factor'
-end
-=======
 
 gem 'jquery-rails'
 gem 'turbolinks'
@@ -63,8 +34,3 @@ gem 'dotenv-rails', '~> 0.11.1'
 gem 'puma', '~> 2.8.2'
 gem 'jquery-ui-rails', '~> 4.2.1'
 gem 'font-awesome-rails', '~> 4.1.0.0'
-
-
-
-
->>>>>>> 6303b1b6b8468f78a8774ec4279fd1d3f0a8b2fd
