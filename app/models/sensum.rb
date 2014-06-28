@@ -1,21 +1,37 @@
 class Sensum
 
   def self.nutrition_lookup(ingredient_array)
-    data = {}
+    lookup(ingredient_array, {})
+  end
+
+  def self.lookup(ingredient_array, data)
     ingredient_array.each do |food|
-      response = HTTParty.get("http://www.klappo.com:8080/jesse/server/#{ENV['API_PATH']}#{ENV['API_ID']}#{ENV['API_KEY']}" + "ingredientLabel=#{food}&#{ENV['LANGUAGE']}")
-      response["ingredientInfo"].each do |var|
-        type = var["idOfTheNutrien"]
-        value = var["value"]
-        unit = var["unit"]
-        if data[type] == nil
-          data[type] = convert(value, unit)
-        else
-          data[type] += convert(value, unit)
+      response = api_check(food)
+      if response["ingredientInfo"] != nil
+        response["ingredientInfo"].each do |info|
+          type = info["idOfTheNutrien"]
+          value = info["value"]
+          unit = info["unit"]
+          if data[type] == nil
+            data[type] = convert(value, unit)
+          else
+            data[type] += convert(value, unit)
+          end
         end
+      elsif food.include?("+")
+        food_array = food.split("+")
+        first_food = food_array.shift
+        remainder = food_array.join("+")
+        recheck_array = [first_food, remainder]
+        lookup(recheck_array, data)
       end
     end
     return data
+  end
+
+  def self.api_check(food_item)
+    result = HTTParty.get("http://www.klappo.com:8080/jesse/server/#{ENV['API_PATH']}#{ENV['API_ID']}#{ENV['API_KEY']}" + "ingredientLabel=#{food_item}&#{ENV['LANGUAGE']}")
+    return result
   end
 
   def self.convert(num, unit)
