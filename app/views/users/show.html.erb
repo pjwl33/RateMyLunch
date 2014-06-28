@@ -1,35 +1,68 @@
-<div class="small-6 columns">
-	<p><%= current_user.name %></p>
-	<%= image_tag @user.profile_photo.url(:thumb) %>
-</div>
+  <div class="small-6 columns">
+    <p><%= current_user.name %></p>
+    <%= image_tag @user.profile_photo.url(:thumb) %>
+  </div>
 
-<div class="small-6 columns">
-	<% if current_user %>
-	<%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
-	<% end %>
-</div>
+  <div class="small-6 columns">
+    <% if current_user %>
+    <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+    <% end %>
+  </div>
 
-<div class="small-12 columns">
-	<% if @meal %>
-	<h2>Today's Meal:</h2>
-	<%= image_tag @meal.meal_photo.url(:medium) %>
-	<div>
-		Rating: <%= @meal.rating ? @meal.rating : "No Ratings Yet" %>
-	</div>
-	<% else %>
-	<%= link_to "Hey Chef, what did you make today?", new_meal_path %>
-	<% end %>
-</div>
+<div class="show-template">
+  <div class="small-12 columns">
+  	<% if @meal %>
+  	<h2>Today's Meal:</h2>
+  	<%= image_tag @meal.meal_photo.url(:medium) %>
+  	<div>
+  		Rating: <%= @meal.rating ? @meal.rating : "No Ratings Yet" %>
+  	</div>
+  	<% else %>
+  	<%= link_to "Hey Chef, what did you make today?", new_meal_path %>
+  	<% end %>
+  </div>
 
-<div class="small-10 columns">
-	<p><%= current_user.name %></p>
-	<button id="vote">Vote Now Bitch</button>
-	<%= image_tag @user.profile_photo.url(:medium) %>
-</div>
+  <div class="small-10 columns">
+  	<p><%= current_user.name %></p>
+  	<button id="vote">Vote Now Bitch</button>
+  	<%= image_tag @user.profile_photo.url(:medium) %>
+  </div>
+  </div>
 </div>
 <hr>
-<div class="row">
-	<div class="small-10 columns">
-		<%= image_tag @last_meal.meal_photo.url(:medium) %>
-	</div>
+
+<div class="vote-template">
+  <div class="row">
+    <div class="small-4 columns">
+      <button class="tiny"><%= link_to 'Profile', user_path(current_user), class: 'white-text' %></button>
+    </div>
+    <div class="small-4 small-offset-4 columns">
+      <button class="tiny"><%= link_to 'Upload', new_meal_path, class: 'white-text' %></button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-12 small-centered columns">
+      <%= image_tag @meal.meal_photo.url(:medium) %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-8 small-centered columns">
+      stars
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-8 small-centered columns">
+      <%= @meal.goal.name %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-8 small-centered columns">
+      <%= @meal.comment %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-8 small-centered columns">
+      <%= @meal.ingredients %>
+    </div>
+  </div>
 </div>
