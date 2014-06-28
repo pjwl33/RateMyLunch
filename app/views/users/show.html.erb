@@ -5,27 +5,31 @@
 
 <div class="small-6 columns">
 	<% if current_user %>
-				<%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+	<%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
 	<% end %>
 </div>
 
 <div class="small-12 columns">
 	<% if @meal %>
-		<h2>Today's Meal:</h2>
-		<%= image_tag @meal.meal_photo.url(:medium) %>
-		<div>
-			Rating: <%= @meal.rating ? @meal.rating : "No Ratings Yet" %>
-		</div>
+	<h2>Today's Meal:</h2>
+	<%= image_tag @meal.meal_photo.url(:medium) %>
+	<div>
+		Rating: <%= @meal.rating ? @meal.rating : "No Ratings Yet" %>
+	</div>
 	<% else %>
-		<%= link_to "Hey Chef, what did you make today?", new_meal_path %>
-<% end %>
+	<%= link_to "Hey Chef, what did you make today?", new_meal_path %>
+	<% end %>
 </div>
 
+<div class="small-10 columns">
+	<p><%= current_user.name %></p>
+	<button id="vote">Vote Now Bitch</button>
+	<%= image_tag @user.profile_photo.url(:medium) %>
+</div>
+</div>
+<hr>
 <div class="row">
-  <p><%= current_user.name %></p>
-  <button id="vote">Vote Now!</button>
-  <%= image_tag @user.profile_photo.url(:medium) %>
+	<div class="small-10 columns">
+		<%= image_tag @last_meal.meal_photo.url(:medium) %>
+	</div>
 </div>
-
-<div class="row"></div>
-
