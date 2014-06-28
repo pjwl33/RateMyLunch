@@ -9,7 +9,7 @@
 	<% end %>
 </div>
 
-<div class="small-12 columns"> 
+<div class="small-12 columns" align="center"> 
 	<% if @meal %> 
 		<h2>Today's Meal:</h2>
 		<%= image_tag @meal.meal_photo.url(:medium) %>
@@ -17,11 +17,14 @@
 			Rating: <%= @meal.rating ? @meal.rating : "No Ratings Yet" %>
 		</div>
 	<% else %>
-		<%= link_to "Hey Chef, what did you make today?", new_meal_path %>
+		<div class="chef-hat">
+			<%= link_to image_tag("chefhat.png"), new_meal_path %>
+		</div>
+		<h2><%= link_to "Hey chef, what did you make today?", new_meal_path %></h2>
 <% end %>
 </div>
 
 
 <div class="small-12 columns"> 
-	<h2>Go To Leaderboard!</h2>
+	<%= button_to "Go To Leaderboard!", ratings_path, method: 'get', class: 'button [radius round]' %>
 </div>

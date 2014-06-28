@@ -3,5 +3,5 @@ Rails.application.routes.draw do
   root to: 'users#show'
   resources :users, only: [:show]
   resources :meals, except: [:edit, :update, :destroy]
-  resources :ratings, only: [:create, :destroy]
+  resources :ratings, only: [:index, :create, :destroy]
 end
