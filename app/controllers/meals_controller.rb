@@ -3,11 +3,7 @@ class MealsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
 
   def show
-    begin
-     @meal = Meal.find(params[:id])
-    rescue
-      redirect_to root_path, notice: "That meal doesn't exist!"
-    end
+    @meal = Meal.find(params[:id])
   end
 
   def new
@@ -29,6 +25,20 @@ class MealsController < ApplicationController
       carbs: data["total carbs"]
       )
     redirect_to meal
+  end
+
+  def grab_meals
+    meals = Meal.all
+    return_data = []
+    meals.each do |meal|
+      if current_user.id != meal.user.id
+        return_data << meal
+      end
+    end
+
+    respond_to do |format|
+      format.json { render json: return_data}
+    end
   end
 
   private
