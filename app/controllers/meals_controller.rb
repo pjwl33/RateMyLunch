@@ -6,18 +6,22 @@ class MealsController < ApplicationController
 
   def new
     @meal = Meal.new
+    @goals = Goal.all
   end
 
   def create
-    @meal = Meal.create(meals_params)
-    if @meal.valid?
-      redirect_to @meal
-    end
-  end
-
-  private
-  def meals_params
-    return params.require(:meal).permit(:comment, :ingredients, :calories, :fat, :protein, :fiber, :sugar, :sodium, :carbs)
+    data = Meal.check_nutritional_facts(params[:meal][:ingredients])
+    @meal = Meal.create(
+      ingredients: params[:meal][:ingredients],
+      comment: params[:meal][:comment],
+      calories: data["energy"], fat: data["total fat"],
+      protein: data["proteins"],
+      fiber: data["total fibres"],
+      sugar: data["sugar"],
+      sodium: data["sodium"],
+      carbs: data["total carbs"]
+      )
+    redirect_to @meal
   end
 
 end
