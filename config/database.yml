@@ -82,4 +82,4 @@ production:
   <<: *default
   database: beat_tadashis_team_production
   username: beat_tadashis_team
-  password: <%= ENV['BEAT_TADASHIS_TEAM_DATABASE_PASSWORD'] %>
+  # password: <%= ENV['BEAT_TADASHIS_TEAM_DATABASE_PASSWORD'] %>
