@@ -23,3 +23,7 @@
 .white-text {
   color: white;
 }
+
+.finished-voting {
+  visibility: hidden;
+}
