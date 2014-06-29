@@ -36,15 +36,15 @@ g2 = Goal.create(name: 'Eat Healthy', desc: 'Well-balanced meals that hit all of
 g3 = Goal.create(name: 'Gain Muscle', desc: 'High protein, lean meals to help build muscle')
 
 # Jesse Seeds
-# file1 = File.open("/Users/jemise111/Desktop/Media/sessler_pic2.jpg")
-# file2 = File.open("/Users/jemise111/Desktop/Media/photostrip.jpg")
-# file3 = File.open("/Users/jemise111/Desktop/Media/PA070001.JPG")
+file1 = File.open("/Users/jemise111/Desktop/Media/sessler_pic2.jpg")
+file2 = File.open("/Users/jemise111/Desktop/Media/photostrip.jpg")
+file3 = File.open("/Users/jemise111/Desktop/Media/PA070001.JPG")
 
 # Marsh seeds
 
-file1 = File.open("/Users/stephenmarsh/Downloads/5brOTlm.jpg")
-file2 = File.open("/Users/stephenmarsh/Downloads/5brOTlm.jpg")
-file3 = File.open("/Users/stephenmarsh/Downloads/5brOTlm.jpg")
+# file1 = File.open("/Users/stephenmarsh/Downloads/5brOTlm.jpg")
+# file2 = File.open("/Users/stephenmarsh/Downloads/5brOTlm.jpg")
+# file3 = File.open("/Users/stephenmarsh/Downloads/5brOTlm.jpg")
 
 users = [u1, u2, u3, u4, u5, u6]
 
