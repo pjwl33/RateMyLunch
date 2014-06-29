@@ -15,7 +15,7 @@ u1 = User.create(email: 'jesse@ham.co', password: 'password',
                  goal_description: "Mass protein intake bro", admin: true)
 u2 = User.create(email: 'stephen@ham.co', password: 'password',
                  password_confirmation: 'password', name: 'Stephen Marsh',
-                 goal_description: "Get totally ripped brah", admin: false)
+                 goal_description: "Get totally ripped brah", admin: true)
 u3 = User.create(email: 'alex@ham.co', password: 'password',
                  password_confirmation: 'password', name: 'Alexandra Shook',
                  goal_description: "Up my kale intake", admin: false)

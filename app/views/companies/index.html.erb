@@ -1,0 +1,14 @@
+<h2> Best Meals At <%= @user.company.name %><h2>
+<ol>
+<% @best_meals.each do |meal| %>
+	<li><%= link_to("#{meal.user.name} - #{meal.created_at} (Rating: #{meal.rating})", meal)%></li>
+<% end %>
+</ol>
+
+<h2> Worst Meals At <%= @user.company.name %></h2>
+
+<ol>
+<% @worst_meals.each do |meal| %>
+	<li><%= link_to("#{meal.user.name} - #{meal.created_at} (Rating: #{meal.rating})", meal)%></li>
+<% end %>
+</ol>

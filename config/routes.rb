@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
   resources :meals, except: [:edit, :update, :destroy]
   resources :ratings, only: [:index, :create, :destroy]
+  resources :companies, only: [:index]
   get '/get_meals' => 'meals#grab_meals'
 end
