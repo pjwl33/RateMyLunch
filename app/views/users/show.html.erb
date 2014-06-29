@@ -33,16 +33,18 @@
 </div>
 
 <div class="row">
-	<div class="small-10 small-centered columns">
+	<div class="small-10 small-centered columns" >
 		<h3 class="center-text bottom-padding">My Meals This Week</h3>
 			<% i = 0 %>
 			<% @meals.each do |meal| %>
-				<div class="user-mini-meal">
+      <div class="small-12 small-centered columns">
+				<div class="user-mini-meal" style="background-color: red;">
 					<%= link_to (image_tag meal.meal_photo.url(:thumb)), meal %>
 					<i class="fa fa-trophy"></i>
 					<%= @company_meals.find_index(meal) %>
 					<%= render partial: 'star', locals: {rating: meal.rating} %>
 				</div>
+      </div>
 		<% i+=1 %>
 		<% end %>
 	</div>
