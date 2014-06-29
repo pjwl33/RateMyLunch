@@ -1,6 +1,6 @@
   <div class="small-6 columns">
     <p><%= current_user.name %></p>
-    <%= image_tag @user.profile_photo.url(:thumb) %>
+    <%= image_tag @user.profile_photo.url(:thumb), class: 'user-default-thumb' %>
   </div>
 
 <div class="small-12 columns" align="center">
@@ -47,7 +47,7 @@
   <div class="small-10 columns">
   	<p><%= current_user.name %></p>
   	<button id="vote">Rate Lunches</button>
-  	<%= image_tag @user.profile_photo.url(:medium) %>
+  	<%= image_tag @user.profile_photo.url(:medium), class: 'user-default-medium' %>
   </div>
 </div>
 </div>
