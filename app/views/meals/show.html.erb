@@ -1,25 +1,33 @@
 <div class="row">
-  <div class="small-4 small-centered columns">
+  <div class="small-6 small-centered columns">
     <h2 class="center-text">Meal Info</h2>
   </div>
 </div>
+<div class="small-8 small-centered columns center-text bottom-padding">
+    <%= image_tag @meal.meal_photo.url(:medium) %>
+</div>
 <div class="row">
-  <div class="small-6 columns center-text">
+  <div class="small-6 columns">
     <h4>Meal Goal: <%= @meal.goal.name %></h4>
     <p>Comments: <%= @meal.comment %></p>
     <p>Ingredients: <%= @meal.ingredients %></p>
-    <%= image_tag @meal.meal_photo.url(:medium) %>
   </div>
   <div class="small-6 columns">
     <h4>Ingredients</h4>
-    <ul>
-      <li><strong>Calories: </strong><%= @meal.calories.round(1) %></li>
-      <li><strong>Carbs: </strong> <%= @meal.carbs %> g</li>
-      <li><strong>Fat: </strong><%= @meal.fat %> g</li>
-      <li><strong>Protein: </strong><%= @meal.protein %> g</li>
-      <li><strong>Fiber: </strong> <%= @meal.fiber %> g</li>
-      <li><strong>Sugar: </strong> <%= @meal.sugar %> g</li>
-      <li><strong>Sodium: </strong> <%= @meal.sodium * 1000 %> mg</li>
-    </ul>
+    <% if @meal.calories %>
+      <ul>
+        <li><strong>Calories: </strong><%= @meal.calories ? @meal.calories.round(1) : 'na' %></li>
+        <li><strong>Carbs: </strong> <%= @meal.carbs %> g</li>
+        <li><strong>Fat: </strong><%= @meal.fat %> g</li>
+        <li><strong>Protein: </strong><%= @meal.protein %> g</li>
+        <li><strong>Fiber: </strong> <%= @meal.fiber %> g</li>
+        <li><strong>Sugar: </strong> <%= @meal.sugar %> g</li>
+        <li><strong>Sodium: </strong> <%= @meal.sodium ? @meal.sodium * 1000 : 'na' %> mg</li>
+      </ul>
+    <% else %>
+      <ul>
+        <li>No nutritional info found.</li>
+      </ul>
+    <% end %>
   </div>
-<div>
+</div>
