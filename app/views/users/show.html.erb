@@ -38,7 +38,7 @@
 			<% i = 0 %>
 			<% @meals.each do |meal| %>
       <div class="small-12 small-centered columns">
-				<div class="user-mini-meal" style="background-color: red;">
+				<div class="user-mini-meal">
 					<%= link_to (image_tag meal.meal_photo.url(:thumb)), meal %>
 					<i class="fa fa-trophy"></i>
 					<%= @company_meals.find_index(meal) %>
