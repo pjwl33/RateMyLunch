@@ -1,25 +1,24 @@
   <div class="small-6 columns">
     <p><%= current_user.name %></p>
-    <%= image_tag @user.profile_photo.url(:thumb) %>
+    <%= image_tag @user.profile_photo.url(:thumb), class: 'user-default-thumb' %>
   </div>
 
-
-<div class="small-12 columns" align="center"> 
+<div class="small-12 columns" align="center">
   <div class="show-template">
     <div class="small-12 columns">
   	<% if @meal %>
 		<h2>Today's Meal:</h2>
 		<%= image_tag @meal.meal_photo.url(:medium), :class => "todays-meal" %>
 		<div>
-			<% if @meal.rating %> 
+			<% if @meal.rating %>
 				<%= @meal.rating %>
 				<%= render partial:'star', locals: {rating: @meal.rating} %>
 				<i class="fa fa-trophy"></i> <%= @company_meals.find_index(@meal) %>
-			<% else %> 
+			<% else %>
 				"No Ratings Yet"
 			<% end %>
 			<br>
-			
+
 		</div>
 	<% else %>
 		<div class="chef-hat">
@@ -48,7 +47,7 @@
   <div class="small-10 columns">
   	<p><%= current_user.name %></p>
   	<button id="vote">Rate Lunches</button>
-  	<%= image_tag @user.profile_photo.url(:medium) %>
+  	<%= image_tag @user.profile_photo.url(:medium), class: 'user-default-medium' %>
   </div>
 </div>
 </div>
