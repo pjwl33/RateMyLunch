@@ -9,7 +9,6 @@
     <% end %>
   </div>
 
-<<<<<<< HEAD
   <div class="show-template">
     <div class="small-12 columns">
      <% if @meal %>
@@ -22,9 +21,8 @@
     <%= link_to "Hey Chef, what did you make today?", new_meal_path %>
     <% end %>
   </div>
-=======
-<div class="small-12 columns" align="center"> 
-	<% if @meal %> 
+<div class="small-12 columns" align="center">
+	<% if @meal %>
 		<h2>Today's Meal:</h2>
 		<%= image_tag @meal.meal_photo.url(:medium), :class => "todays-meal" %>
 		<div>
@@ -40,7 +38,6 @@
 		<h2><%= link_to "Hey chef, what did you make today?", new_meal_path %></h2>
 <% end %>
 </div>
->>>>>>> development
 
   <div class="small-10 columns">
   	<p><%= current_user.name %></p>
@@ -50,7 +47,6 @@
 </div>
 </div>
 <hr>
-<<<<<<< HEAD
 
 <div class="vote-template" hidden>
   <div class="row">
@@ -122,7 +118,7 @@
 			<% @meals.each do |meal| %>
 				<div class="user-mini-meal">
 					<%= link_to (image_tag meal.meal_photo.url(:thumb)), meal %>
-					<i class="fa fa-trophy"></i> 
+					<i class="fa fa-trophy"></i>
 					<%= @company_meals.find_index(meal) %>
 					<%= render partial: 'star', locals: {rating: meal.rating} %>
 				</div>
@@ -132,6 +128,6 @@
 >>>>>>> development
 </div>
 
-<div class="small-12 columns"> 
+<div class="small-12 columns">
 	<%= button_to "Go To Leaderboard!", ratings_path, method: 'get', class: 'button [radius round]' %>
 </div>
