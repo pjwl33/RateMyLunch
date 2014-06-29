@@ -13,25 +13,23 @@
   <div class="show-template">
     <div class="small-12 small-centered columns">
   	<% if @meal %>
-		<h2>Today's Meal:</h2>
-		<%= image_tag @meal.meal_photo.url(:medium), :class => "todays-meal" %>
-		<div>
-			<% if @meal.rating %>
-				<%= @meal.rating %>
-				<%= render partial:'star', locals: {rating: @meal.rating} %>
-				<i class="fa fa-trophy"></i> <%= @company_meals.find_index(@meal) %>
-			<% else %>
-				"No Ratings Yet"
-			<% end %>
-			<br>
-
-		</div>
+    	<h2>Today's Meal:</h2>
+  		<%= image_tag @meal.meal_photo.url(:medium), :class => "todays-meal" %>
+  		<div>
+  			<% if @meal.rating %>
+  				<%= @meal.rating %>
+  				<%= render partial:'star', locals: {rating: @meal.rating} %>
+  				<i class="fa fa-trophy"></i> <%= @company_meals.find_index(@meal) %>
+  			<% else %>
+  				"No Ratings Yet"
+  			<% end %>	
+  		</div>
 	<% else %>
 		<div class="chef-hat">
 			<%= link_to image_tag("chefhat.png"), new_meal_path %>
 		</div>
 		<h2><%= link_to "Hey chef, what did you make today?", new_meal_path, class: 'centered-text' %></h2>
-<% end %>
+  <% end %>
 </div>
 
 <div class="row">
@@ -55,6 +53,7 @@
   </div>
 </div>
 </div>
+
 <hr>
 
 <div class="vote-template" hidden>
