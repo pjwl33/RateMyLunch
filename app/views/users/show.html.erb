@@ -15,7 +15,7 @@
   	<% if @meal %>
     	<h2>Today's Meal:</h2>
       <div class="meal-pic-wrapper">
-		    <%= image_tag @meal.meal_photo.url, class: 'meal-pic', :style => "max-width: 140%;" %>
+		    <a href="<%= meal_path(@meal) %>"><%= image_tag @meal.meal_photo.url, class: 'meal-pic', :style => "max-width: 140%;" %></a>
       </div>
   		<div>
   			<% if @meal.rating %>
