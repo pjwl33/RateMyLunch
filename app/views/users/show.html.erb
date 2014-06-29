@@ -16,6 +16,8 @@
 		<div>
 			<%= render partial:'star', locals: {rating: @meal.rating} %>
 			<%= @meal.rating ? @meal.rating : "No Ratings Yet" %>
+			<br>
+			<i class="fa fa-trophy"></i> <%= @company_meals.find_index(@meal) %>
 		</div>
 	<% else %>
 		<div class="chef-hat">
@@ -34,12 +36,13 @@
 <hr>
 <div class="row">
 	<div class="small-10 columns">
-		
+		<h3>My Meals This Week</h3>
 			<% i = 0 %>
 			<% @meals.each do |meal| %>
 				<div class="user-mini-meal">
 					<%= link_to (image_tag meal.meal_photo.url(:thumb)), meal %>
-					<i class="fa fa-trophy"></i> <%= i %>
+					<i class="fa fa-trophy"></i> 
+					<%= @company_meals.find_index(meal) %>
 					<%= render partial: 'star', locals: {rating: meal.rating} %>
 				</div>
 		<% i+=1 %>
