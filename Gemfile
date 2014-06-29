@@ -36,3 +36,4 @@ gem 'jquery-ui-rails', '~> 4.2.1'
 gem 'font-awesome-rails', '~> 4.1.0.0'
 gem 'foundation-rails'
 gem 'httparty'
+
