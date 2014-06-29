@@ -1,11 +1,11 @@
 <div class="rating stars">
 	<% num_times = rating.floor %>
-	<% rating = rating.round(1) %> 
+	<% rating = rating.round(1) %>
 	<% decimal = rating.to_s.last.to_i %>
 	<% if num_times == 0 %>
 		<%= fa_icon 'fa fa-star-o', class: 'yellow-stars' %>
-	<% else %> 
-		<% num_times.times do %> 
+	<% else %>
+		<% num_times.times do %>
 			<i class="fa fa-star yellow-stars"></i>
 		<% end %>
 		<% if decimal >= 5 %>
