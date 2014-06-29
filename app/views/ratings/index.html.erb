@@ -8,11 +8,14 @@
   <% @grouped_meals.each do |goal, meals| %>
     <div class="leaderboard-individual-chart" id="leaderboard-<%= goal.name %>">
       <h1><%= goal.name %></h1>
-      <div class="leaderboard-meal">
+      <ul class="inline-list leaderboard-meal">
         <% meals.sort_by(&:rating).reverse.first(5).each do |meal| %>
-          <%= image_tag(meal.meal_photo.url(:thumb), id: meal.rating) %>
+        <ul class="single-bar" id="<%= meal.user.name %>">
+          <li><%= meal.rating.round(1) %><i class="fa fa-star yellow-stars"></i></li>
+          <li><%= image_tag(meal.meal_photo.url(:thumb), id: meal.rating) %></li>
+        </ul>
         <% end %>
-        </div>
+      </ul>
     </div>
   <% end %>
 </div>
