@@ -12,9 +12,9 @@
 <div class="small-12 columns" align="center">
   <div class="show-template">
     <div class="small-12 small-centered columns">
-  	<% if @meal %>
-		<h2>Today's Meal:</h2>
-		<%= image_tag @meal.meal_photo.url(:medium), :class => "todays-meal" %>
+    	<% if @meal %>
+  		<h2>Today's Meal:</h2>
+  		  <%= image_tag @meal.meal_photo.url(:medium), :class => "todays-meal" %>
 		<div>
 			<% if @meal.rating %>
 				<%= @meal.rating %>
