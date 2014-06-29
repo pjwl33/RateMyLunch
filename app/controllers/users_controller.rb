@@ -5,7 +5,7 @@ class UsersController < ApplicationController
     @user = current_user
     @meals = @user.meals_since_sunday
     @meal = @meals.shift
-    # @last_meal = @user.meals.last || nil
+		@company_meals = @user.company.meals_since_sunday_sorted
   end
 
 end
