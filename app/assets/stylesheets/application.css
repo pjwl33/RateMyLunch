@@ -33,6 +33,10 @@
   padding-bottom: 20px;
 }
 
+.big-bottom-padding {
+  padding-bottom: 50px;
+}
+
 .top-padding {
   padding-top: 10px;
 }
@@ -219,6 +223,14 @@ img {
 
   .resizable-image {
     max-width: 50%;
+  }
+
+  .big-bottom-padding {
+    padding-bottom: 50px;
+  }
+
+  .user-mini-meal {
+    width: 100%;
   }
 
 }
