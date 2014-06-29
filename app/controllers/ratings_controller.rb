@@ -1,5 +1,13 @@
 class RatingsController < ApplicationController
 
+  before_action :authenticate_user!
+
+  def index
+    # Leaderboard
+    current_company = current_user.company
+    @grouped_meals = current_company.meals_since_sunday.group_by { |m| m.goal }
+  end
+
 	def create
 		@user = current_user
 		@meal = Meal.find(params[:id])
