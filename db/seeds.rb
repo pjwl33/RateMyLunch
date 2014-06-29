@@ -46,16 +46,22 @@ file1 = File.open("/Users/stephenmarsh/Downloads/5brOTlm.jpg")
 file2 = File.open("/Users/stephenmarsh/Downloads/5brOTlm.jpg")
 file3 = File.open("/Users/stephenmarsh/Downloads/5brOTlm.jpg")
 
-# Jason seeds
+# # Jason seeds
 
-file1 = File.open("/Users/jason/Desktop/lasagna.jpg")
-file2 = File.open("/Users/jason/Desktop/salad.jpg")
-file3 = File.open("/Users/jason/Desktop/pizza.jpg")
+# file1 = File.open("/Users/jason/Desktop/lasagna.jpg")
+# file2 = File.open("/Users/jason/Desktop/salad.jpg")
+# file3 = File.open("/Users/jason/Desktop/pizza.jpg")
 
 # Alex seeds
 # file1 = File.open("/Users/alexshook/Dropbox/beattadashi.jpg")
 # file2 = File.open("/Users/alexshook/Dropbox/beattadashi.jpg")
 # file3 = File.open("/Users/alexshook/Dropbox/beattadashi.jpg")
+
+##Paul Seeds
+file1 = File.open("/Users/pjwl/Projects/pjwl33.github.io/images/personal.png")
+file2 = File.open("/Users/pjwl/Projects/pjwl33.github.io/images/personal.png")
+file3 = File.open("/Users/pjwl/Projects/pjwl33.github.io/images/personal.png")
+
 
 users = [u1, u2, u3, u4, u5, u6]
 
