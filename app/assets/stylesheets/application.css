@@ -10,12 +10,20 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require jquery.ui.all
  *= require_tree .
  *= require_self
  *= require foundation_and_overrides
  *= require font-awesome
  */
 
+.white-text {
+  color: white;
+}
+
+.finished-voting {
+  visibility: hidden;
+}
  /* Users Show Page Styles */
 
  .chef-hat {
@@ -104,11 +112,7 @@
   width: 50px;
 }
 
-<<<<<<< HEAD
 
-
-=======
 #test-div {
   height: 500px;
 }
->>>>>>> leaderboard

@@ -1,16 +1,28 @@
-<div class="small-6 columns">
-	<p><%= current_user.name %></p>
-	<%= image_tag @user.profile_photo.url(:thumb) %>
-</div>
+  <div class="small-6 columns">
+    <p><%= current_user.name %></p>
+    <%= image_tag @user.profile_photo.url(:thumb) %>
+  </div>
 
-<div class="small-6 columns">
-	<% if current_user %>
-	<%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
-	<% end %>
-</div>
+  <div class="small-6 columns">
+    <% if current_user %>
+    <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+    <% end %>
+  </div>
 
-<div class="small-12 columns" align="center"> 
-	<% if @meal %> 
+  <div class="show-template">
+    <div class="small-12 columns">
+     <% if @meal %>
+     <h2>Today's Meal:</h2>
+     <%= image_tag @meal.meal_photo.url(:medium) %>
+     <div>
+      Rating: <%= @meal.rating ? @meal.rating : "No Ratings Yet" %>
+    </div>
+    <% else %>
+    <%= link_to "Hey Chef, what did you make today?", new_meal_path %>
+    <% end %>
+  </div>
+<div class="small-12 columns" align="center">
+	<% if @meal %>
 		<h2>Today's Meal:</h2>
 		<%= image_tag @meal.meal_photo.url(:medium), :class => "todays-meal" %>
 		<div>
@@ -27,13 +39,77 @@
 <% end %>
 </div>
 
-<div class="small-10 columns">
-	<p><%= current_user.name %></p>
-	<button id="vote">Vote Now Bitch</button>
-	<%= image_tag @user.profile_photo.url(:medium) %>
+  <div class="small-10 columns">
+  	<p><%= current_user.name %></p>
+  	<button id="vote">Rate Lunches</button>
+  	<%= image_tag @user.profile_photo.url(:medium) %>
+  </div>
 </div>
 </div>
 <hr>
+
+<div class="vote-template" hidden>
+  <div class="row">
+    <div class="small-4 columns">
+      <button class="tiny"><%= link_to 'Profile', user_path(current_user), class: 'white-text' %></button>
+    </div>
+    <div class="small-4 small-offset-4 columns">
+      <button class="tiny"><%= link_to 'Submit a Meal', new_meal_path, class: 'white-text' %></button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-12 small-centered columns" id="vote-meal-pic">
+      <!-- meal image -->
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-8 small-centered columns" id="vote-meal-goalname">
+      <!-- meal goal name -->
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-8 small-centered columns" id="vote-meal-comment">
+      <!-- meal comment -->
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-8 small-centered columns" id="vote-meal-ingredients">
+      <!-- meal ingredients -->
+    </div>
+  </div>
+  <span class="star-rating">
+    <input type="radio" name="rating" id="rating-1"><i></i>
+    <input type="radio" name="rating" id="rating-2"><i></i>
+    <input type="radio" name="rating" id="rating-3"><i></i>
+    <input type="radio" name="rating" id="rating-4"><i></i>
+    <input type="radio" name="rating" id="rating-5"><i></i>
+  </span>
+</div>
+
+<div class="finished-voting">
+  <div class="row">
+    <div class="small-4 columns">
+      <button class="tiny"><%= link_to 'Profile', user_path(current_user), class: 'white-text' %></button>
+    </div>
+    <div class="small-4 small-offset-4 columns">
+      <button class="tiny"><%= link_to 'Submit a Meal', new_meal_path, class: 'white-text' %></button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-12 small-centered columns" id="vote-meal-pic">
+      <img src="http://www.rawstory.com/rs/wp-content/uploads/2012/08/I-Voted-via-Shutterstock-615x345.jpg" />
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-8 small-centered columns" id="vote-meal-goalname">
+      <h3>Good Job!</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-8 small-centered columns" id="vote-meal-comment">
+      <p>Congrats! You have finished voting on all meals today. Come back later to vote more.</p>
+    </div>
+  </div>
 <div class="row">
 	<div class="small-10 columns">
 		<h3>My Meals This Week</h3>
@@ -41,7 +117,7 @@
 			<% @meals.each do |meal| %>
 				<div class="user-mini-meal">
 					<%= link_to (image_tag meal.meal_photo.url(:thumb)), meal %>
-					<i class="fa fa-trophy"></i> 
+					<i class="fa fa-trophy"></i>
 					<%= @company_meals.find_index(meal) %>
 					<%= render partial: 'star', locals: {rating: meal.rating} %>
 				</div>
@@ -50,6 +126,6 @@
 	</div>
 </div>
 
-<div class="small-12 columns"> 
+<div class="small-12 columns">
 	<%= button_to "Go To Leaderboard!", ratings_path, method: 'get', class: 'button [radius round]' %>
 </div>
