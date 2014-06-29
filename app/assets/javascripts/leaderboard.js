@@ -20,10 +20,12 @@ function setupClickEvents() {
     var chartToShow = individualCharts[this.id];
     $(chartToShow).show();
     $(chartToShow).appendTo("#leaderboard-chart");
-    var chartHeight = $('#leaderboard-chart').height() - 100;
+    // Account for h1, image, rating heights
+    var baseHeight = $('#leaderboard-chart').height() - $('.leaderboard-individual-chart h1').eq(0).height() - $('img').eq(0).height() - 20;
     $('.leaderboard-meal img').css("margin-bottom", "0px");
     $('.leaderboard-meal img').each(function(){
-      var newHeight = chartHeight * (parseFloat(this.id) / 5) + "px";
+      var newHeight = baseHeight * (parseFloat(this.id) / 5) + "px";
+      console.log(newHeight);
       $(this).animate({
         "margin-bottom": newHeight
       }, 800);
