@@ -14,7 +14,7 @@
     <div class="small-12 small-centered columns">
   	<% if @meal %>
     	<h2>Today's Meal:</h2>
-  		<%= image_tag @meal.meal_photo.url(:medium), :class => "todays-meal" %>
+  		<%= link_to image_tag(@meal.meal_photo.url(:medium), class: "todays-meal"), @meal %>
   		<div>
   			<% if @meal.rating %>
   				<%= @meal.rating %>
