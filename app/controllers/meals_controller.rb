@@ -31,9 +31,10 @@ class MealsController < ApplicationController
 
   def grab_meals
     return_data = []
-
     meals = Meal.all.where.not(user_id: current_user.id)
+
     meals.each do |meal|
+      check_nil_value(meal)
       if meal.ratings.where(user_id: current_user.id).size <= 0
         return_data << [meal, meal.meal_photo.url(:medium), meal.goal.name]
       end
@@ -47,6 +48,22 @@ class MealsController < ApplicationController
   private
   def meal_params
     params.require(:meal).permit(:meal_photo, :comment, :ingredients, :goal_id)
+  end
+
+  def check_nil_value(meal)
+    check_array = ['calories', 'fat', 'protein', 'fiber', 'sugar', 'sodium', 'carbs']
+    check_array.each do |value|
+      if meal[value] == nil
+        meal[value] == 'N/A'
+      end
+      if value == 'calories' && meal['calories'] != nil
+        meal['calories'] = meal['calories'].round(1)
+      end
+      if value == 'sodium' && meal['sodium'] != nil
+        meal['sodium'] = meal['sodium'] * 1000
+      end
+    end
+    return meal
   end
 
 end
