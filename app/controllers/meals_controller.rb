@@ -32,11 +32,8 @@ class MealsController < ApplicationController
 
     meals = Meal.all.where.not(user_id: current_user.id)
     meals.each do |meal|
-      meal_ratings = Rating.find_by(meal_id: meal.id)
-      meal_ratings.each do |rating|
-        unless rating.user_id == current_user.id
-          return_data << meal
-        end
+      if meal.ratings.where(user_id: current_user.id).size <= 0
+        return_data << [meal, meal.meal_photo.url(:medium)]
       end
     end
 
