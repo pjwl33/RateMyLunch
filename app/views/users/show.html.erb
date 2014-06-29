@@ -34,16 +34,14 @@
 <hr>
 <div class="row">
 	<div class="small-10 columns">
-		<div class="user-mini-meal">
+		
 			<% i = 0 %>
 			<% @meals.each do |meal| %>
-				<div class="back">
+				<div class="user-mini-meal">
 					<%= link_to (image_tag meal.meal_photo.url(:thumb)), meal %>
-				</div>
-				<div class="front">
-					<%= i %>
+					<i class="fa fa-trophy"></i> <%= i %>
 					<%= render partial: 'star', locals: {rating: meal.rating} %>
-			</div>
+				</div>
 		<% i+=1 %>
 		<% end %>
 	</div>
