@@ -2,6 +2,7 @@ class MealsController < ApplicationController
 
   before_action :authenticate_user!, only: [:new, :create]
 
+  # Should not rescue all errors, favor letting rails handle bad routes
   def show
     @meal = Meal.find(params[:id])
   end

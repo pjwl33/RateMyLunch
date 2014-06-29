@@ -13,4 +13,12 @@ class User < ActiveRecord::Base
                                   :thumb => "100x100>" },
                                   :default_url => "https://s3.amazonaws.com/beattadashi/users/profile_photos/000/000/005"
   validates_attachment_content_type :profile_photo, :content_type => /\Aimage\/.*\Z/
+
+  def meals_since_sunday
+    tonight = DateTime.now.change(hour: 23, min: 59)
+    last_sunday_night = tonight - tonight.wday
+    meals = self.meals.order(created_at: :desc)
+    meals.select { |m| m.created_at > last_sunday_night }
+  end
+
 end

@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 20140628172547) do
     t.float    "rating"
     t.integer  "user_id"
     t.integer  "goal_id"
+    t.integer  "company_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "meal_photo_file_name"

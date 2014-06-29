@@ -14,12 +14,14 @@ class Rating < ActiveRecord::Base
 		total_ratings = self.meal.ratings.length
 		if total_ratings == 1
 			self.meal.rating = self.vote_rating.to_f
+			self.meal.save
 		else
 			total_score = 0.0
 			self.meal.ratings.each do |rating|
 				total_score += rating.vote_rating
 			end
 			self.meal.rating = (total_score.to_f / total_ratings.to_f)
+			self.meal.save
 		end
 	end
 
