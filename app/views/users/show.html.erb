@@ -9,15 +9,13 @@
 	<% end %>
 </div>
 
-
-
 <div class="small-12 columns" align="center"> 
 	<% if @meal %> 
 		<h2>Today's Meal:</h2>
 		<%= image_tag @meal.meal_photo.url(:medium), :class => "todays-meal" %>
 		<div>
-			Rating: <%= @meal.rating ? @meal.rating : "No Ratings Yet" %>
-			<%= render 'star' %>
+			<%= render partial:'star', locals: {rating: @meal.rating} %>
+			<%= @meal.rating ? @meal.rating : "No Ratings Yet" %>
 		</div>
 	<% else %>
 		<div class="chef-hat">
@@ -36,9 +34,20 @@
 <hr>
 <div class="row">
 	<div class="small-10 columns">
-
-
+		<div class="user-mini-meal">
+			<% i = 0 %>
+			<% @meals.each do |meal| %>
+				<div class="back">
+					<%= link_to (image_tag meal.meal_photo.url(:thumb)), meal %>
+				</div>
+				<div class="front">
+					<%= i %>
+					<%= render partial: 'star', locals: {rating: meal.rating} %>
+			</div>
+		<% i+=1 %>
+		<% end %>
 	</div>
+</div>
 
 <div class="small-12 columns"> 
 	<%= button_to "Go To Leaderboard!", ratings_path, method: 'get', class: 'button [radius round]' %>

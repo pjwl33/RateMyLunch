@@ -1,0 +1,14 @@
+<div class="leaderboard-controls">
+  <% @grouped_meals.keys.each do |goal| %>
+    <a class="button" id="<%= dom_id(goal) %>"><%= goal.name %></a>
+  <% end %>
+</div>
+
+<div class="leaderboard-chart">
+  <% @grouped_meals.each do |goal, meals| %>
+    <h1><%= goal.name %></h1>
+    <% meals.each do |meal| %>
+      <%= image_tag(meal.meal_photo.url(:thumb), class: 'leaderboard-item') %>
+    <% end %>
+  <% end %>
+</div>

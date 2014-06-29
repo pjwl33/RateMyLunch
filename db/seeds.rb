@@ -1,3 +1,4 @@
+
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 #
@@ -34,27 +35,35 @@ g1 = Goal.create(name: 'Lose Weight', desc: 'Meals that encourage weight loss')
 g2 = Goal.create(name: 'Eat Healthy', desc: 'Well-balanced meals that hit all of the major food groups')
 g3 = Goal.create(name: 'Gain Muscle', desc: 'High protein, lean meals to help build muscle')
 
-file1 = File.open("/Users/jemise111/Desktop/Media/sessler_pic2.jpg")
-file2 = File.open("/Users/jemise111/Desktop/Media/photostrip.jpg")
-file3 = File.open("/Users/jemise111/Desktop/Media/PA070001.JPG")
+# Jesse Seeds
+# file1 = File.open("/Users/jemise111/Desktop/Media/sessler_pic2.jpg")
+# file2 = File.open("/Users/jemise111/Desktop/Media/photostrip.jpg")
+# file3 = File.open("/Users/jemise111/Desktop/Media/PA070001.JPG")
+
+# Marsh seeds
+
+file1 = File.open("/Users/stephenmarsh/Downloads/5brOTlm.jpg")
+file2 = File.open("/Users/stephenmarsh/Downloads/5brOTlm.jpg")
+file3 = File.open("/Users/stephenmarsh/Downloads/5brOTlm.jpg")
 
 users = [u1, u2, u3, u4, u5, u6]
 
 10.times do |i|
- Meal.create(comment: "Healthy Meal #{i}", ingredients: 'tomato, salad', user_id: users[i % 6], goal_id: g1.id, meal_photo: file1)
+ Meal.create(comment: "Healthy Meal #{i}", ingredients: 'tomato, salad', user: User.all.sample, goal_id: g1.id, meal_photo: file1)
 end
 
 10.times do |i|
- Meal.create(comment: "Healthy Meal #{i}", ingredients: 'cucumber, salad', user_id: users[i % 6], goal_id: g2.id, meal_photo: file2)
+ Meal.create(comment: "Healthy Meal #{i}", ingredients: 'cucumber, salad', user: User.all.sample, goal_id: g2.id, meal_photo: file2)
 end
 
 10.times do |i|
- Meal.create(comment: "Healthy Meal #{i}", ingredients: 'carrots, salad', user_id: users[i % 6], goal_id: g3.id, meal_photo: file3)
+ Meal.create(comment: "Healthy Meal #{i}", ingredients: 'carrots, salad', user: User.all.sample, goal_id: g3.id, meal_photo: file3)
 end
 
 Meal.all.each do |meal|
  5.times do |i|
-   rating = rand(i)
+    random_nums = [1, 2, 3, 4, 5]
+    rating = random_nums.sample
    Rating.create(vote_rating: rating, user_id: i.next, meal_id: meal.id)
  end
 end
@@ -62,3 +71,4 @@ end
 Meal.all.each do |meal|
  Company.find_by(name: "HAM Corporation").meals << meal
 end
+

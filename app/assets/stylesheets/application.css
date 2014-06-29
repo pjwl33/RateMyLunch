@@ -14,42 +14,99 @@
  *= require_self
  *= require foundation_and_overrides
  *= require font-awesome
-
  */
 
+ /* Users Show Page Styles */
 
  .chef-hat {
  	background: lightgrey;
   /* Safari 3-4, iOS 1-3.2, Android 1.6- */
-  -webkit-border-radius: 100%; 
+  -webkit-border-radius: 100%;
   height: 160px;
   width: 160px;
   /* Firefox 1-3.6 */
-  -moz-border-radius: 100%; 
+  -moz-border-radius: 100%;
   vertical-align: middle;
   text-align: center;
   padding: 12px 0px 0px;
-  
+
   /* Opera 10.5, IE 9, Safari 5, Chrome, Firefox 4, iOS 4, Android 2.1+ */
-  border-radius: 100%; 
+  border-radius: 100%;
 }
 
 
 .todays-meal {
    /* Safari 3-4, iOS 1-3.2, Android 1.6- */
-  -webkit-border-radius: 100%; 
+  -webkit-border-radius: 100%;
 
   /* Firefox 1-3.6 */
-  -moz-border-radius: 100%; 
+  -moz-border-radius: 100%;
   vertical-align: middle;
   text-align: center;
-  
-  
+
+
   /* Opera 10.5, IE 9, Safari 5, Chrome, Firefox 4, iOS 4, Android 2.1+ */
-  border-radius: 100%; 
+  border-radius: 100%;
 
 }
 
 .yellow-stars {
   color: goldenrod;
+  z-index: 1;
 }
+
+.user-mini-meal {
+  /*float: left;*/
+  padding: 10px;
+  position:relative;
+  width: 120px;
+  height: 120px;
+
+}
+
+.user-mini-meal img {
+  border-radius: 100%;
+  opacity: .6;
+
+}
+
+.front {
+  z-index: 1;
+  position: relative;
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 100%;
+  float: left;
+}
+
+.back {
+  z-index: -1;
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 100%;
+  /*float: right;*/
+}
+
+/* Leaderboard Styles - Ratings Index Page */
+
+.leaderboard-chart {
+  border: 1px solid black;
+  height: 500px;
+  margin: 0 auto;
+  position: relative;
+  width: 80%;
+}
+
+.leaderboard-item {
+  border-radius: 100%;
+  height: 50px;
+  width: 50px;
+}
+
+
+
