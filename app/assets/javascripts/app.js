@@ -12,18 +12,24 @@ function startVoting(){
     dataType: 'JSON',
     async: false
   }).done(function(data){
-    console.log(data);
+    console.log(data.length);
     return data;
   });
-  var mealObject = meals["responseJSON"][0][0];
-  var image = meals["responseJSON"][0][1];
-  var goalName = meals["responseJSON"][0][2];
-  appendMeal(mealObject, image, goalName);
+  console.log(meals["responseJSON"].length <= 0);
+  if (meals["responseJSON"].length <= 0){
+    $('.vote-template').empty();
+    $('.finished-voting').css('visibility', 'visible');
+    console.log('done, yo');
+  } else {
+    var mealObject = meals["responseJSON"][0][0];
+    var image = meals["responseJSON"][0][1];
+    var goalName = meals["responseJSON"][0][2];
+    appendMeal(mealObject, image, goalName);
+  }
 }
 
+
 function appendMeal(meal, image, goalName){
-  console.log(meal["id"]);
-  console.log(meal);
   $('#vote-meal-pic').empty().append("<img src=" + image + "/>");
   $('#vote-meal-goalname').append('<p><p>').html("<strong>Goal Category: </strong>" + goalName);
   $('#vote-meal-comment').append('<p></p>').html("<strong>Comment: </strong>" + meal["comment"]);
@@ -45,7 +51,6 @@ function addRating(num, mealID){
       meal_id: mealID
     }
   }).done(function(data){
-    console.log(data);
     startVoting();
   });
 }
