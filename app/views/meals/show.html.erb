@@ -4,11 +4,11 @@
 <%= image_tag @meal.meal_photo.url(:medium) %>
 
 <ul>
-  <li><%= @meal.calories.round(1) %> calories</li>
-  <li><%= @meal.carbs %> g</li>
-  <li><%= @meal.fat %> g</li>
-  <li><%= @meal.protein %> g</li>
-  <li><%= @meal.fiber %> g</li>
-  <li><%= @meal.sugar %> g</li>
-  <li><%= @meal.sodium * 1000 %> mg</li>
+  <li><strong>Calories: </strong><%= @meal.calories.round(1) %></li>
+  <li><strong>Carbs: </strong> <%= @meal.carbs %> g</li>
+  <li><strong>Fat: </strong><%= @meal.fat %> g</li>
+  <li><strong>Protein: </strong><%= @meal.protein %> g</li>
+  <li><strong>Fiber: </strong> <%= @meal.fiber %> g</li>
+  <li><strong>Sugar: </strong> <%= @meal.sugar %> g</li>
+  <li><strong>Sodium: </strong> <%= @meal.sodium * 1000 %> mg</li>
 </ul>

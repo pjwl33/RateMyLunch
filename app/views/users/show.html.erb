@@ -3,23 +3,22 @@
     <%= image_tag @user.profile_photo.url(:thumb) %>
   </div>
 
-  <div class="small-6 columns">
-    <% if current_user %>
-    <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
-    <% end %>
-  </div>
-
-  <div class="show-template">
-
 <div class="small-12 columns" align="center">
-	<% if @meal %>
+  <div class="show-template">
+    <div class="small-12 columns">
+  	<% if @meal %>
 		<h2>Today's Meal:</h2>
 		<%= image_tag @meal.meal_photo.url(:medium), :class => "todays-meal" %>
 		<div>
-			<%= render partial:'star', locals: {rating: @meal.rating} %>
-			<%= @meal.rating ? @meal.rating : "No Ratings Yet" %>
+			<% if @meal.rating %>
+				<%= @meal.rating %>
+				<%= render partial:'star', locals: {rating: @meal.rating} %>
+				<i class="fa fa-trophy"></i> <%= @company_meals.find_index(@meal) %>
+			<% else %>
+				"No Ratings Yet"
+			<% end %>
 			<br>
-			<i class="fa fa-trophy"></i> <%= @company_meals.find_index(@meal) %>
+
 		</div>
 	<% else %>
 		<div class="chef-hat">
@@ -27,6 +26,22 @@
 		</div>
 		<h2><%= link_to "Hey chef, what did you make today?", new_meal_path %></h2>
 <% end %>
+</div>
+
+<div class="row">
+	<div class="small-10 columns">
+		<h3>My Meals This Week</h3>
+			<% i = 0 %>
+			<% @meals.each do |meal| %>
+				<div class="user-mini-meal">
+					<%= link_to (image_tag meal.meal_photo.url(:thumb)), meal %>
+					<i class="fa fa-trophy"></i>
+					<%= @company_meals.find_index(meal) %>
+					<%= render partial: 'star', locals: {rating: meal.rating} %>
+				</div>
+		<% i+=1 %>
+		<% end %>
+	</div>
 </div>
 
   <div class="small-10 columns">
@@ -100,21 +115,7 @@
       <p>Congrats! You have finished voting on all meals today. Come back later to vote more.</p>
     </div>
   </div>
-<div class="row">
-	<div class="small-10 columns">
-		<h3>My Meals This Week</h3>
-			<% i = 0 %>
-			<% @meals.each do |meal| %>
-				<div class="user-mini-meal">
-					<%= link_to (image_tag meal.meal_photo.url(:thumb)), meal %>
-					<i class="fa fa-trophy"></i>
-					<%= @company_meals.find_index(meal) %>
-					<%= render partial: 'star', locals: {rating: meal.rating} %>
-				</div>
-		<% i+=1 %>
-		<% end %>
-	</div>
-</div>
+
 
 <div class="small-12 columns">
 	<%= button_to "Go To Leaderboard!", ratings_path, method: 'get', class: 'button [radius round]' %>
