@@ -7,37 +7,37 @@
 
     <div class="row">
     <%= f.label :profile_photo %><br />
-      <div class="small-6 columns">
+      <div class="small-10 columns">
         <%= f.file_field :profile_photo %>
       </div>
     </div>
 
     <div class="row"><%= f.label :name %><br />
-      <div class="small-6 columns">
+      <div class="small-10 columns">
         <%= f.text_field :name, autofocus: true %>
       </div>
     </div>
 
     <div class="row"><%= f.label :email %><br />
-      <div class="small-6 columns">
+      <div class="small-10 columns">
         <%= f.email_field :email %>
       </div>
     </div>
 
     <div class="row"><%= f.label :goal_description %><br />
-      <div class="small-6 columns">
+      <div class="small-10 columns">
         <%= f.text_area :goal_description %>
       </div>
     </div>
 
     <div class="row"><%= f.label :password %><br />
-      <div class="small-6 columns">
+      <div class="small-10 columns">
           <%= f.password_field :password, autocomplete: "off" %>
       </div>
     </div>
 
     <div class="row"><%= f.label :password_confirmation %><br />
-      <div class="small-6 columns">
+      <div class="small-10 columns">
           <%= f.password_field :password_confirmation, autocomplete: "off" %>
       </div>
     </div>
