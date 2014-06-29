@@ -14,9 +14,12 @@
     <div class="small-12 small-centered columns">
   	<% if @meal %>
     	<h2>Today's Meal:</h2>
-      <div class="meal-pic-wrapper">
-		    <a href="<%= meal_path(@meal) %>"><%= image_tag @meal.meal_photo.url, class: 'meal-pic', :style => "max-width: 140%;" %></a>
-      </div>
+  		<%= link_to image_tag(@meal.meal_photo.url(:medium), class: "todays-meal"), @meal %>
+    <!-- jason's link fix, the photo is a little bit too small -->
+      <!-- <div class="meal-pic-wrapper"> -->
+		    <!-- <a href="<%= meal_path(@meal) %>"><%#= image_tag @meal.meal_photo.url, class: 'meal-pic', :style => "max-width: 140%;" %></a> -->
+      <!-- </div> -->
+    <!-- end jason's link fix -->
   		<div>
   			<% if @meal.rating %>
   				<%= @meal.rating %>
