@@ -14,8 +14,9 @@
  *= require_self
  *= require foundation_and_overrides
  *= require font-awesome
-
  */
+
+ /* Users Show Page Styles */
 
  .chef-hat {
  	background: lightgrey;
@@ -49,6 +50,50 @@
 
 }
 
+.yellow-stars {
+  color: goldenrod;
+  z-index: 1;
+}
+
+.user-mini-meal {
+  /*float: left;*/
+  padding: 10px;
+  position:relative;
+  width: 120px;
+  height: 120px;
+
+}
+
+.user-mini-meal img {
+  border-radius: 100%;
+  opacity: .6;
+
+}
+
+.front {
+  z-index: 1;
+  position: relative;
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 100%;
+  float: left;
+}
+
+.back {
+  z-index: -1;
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 100%;
+  /*float: right;*/
+}
+
+/* Leaderboard Styles - Ratings Index Page */
+
 .leaderboard-chart {
   border: 1px solid black;
   height: 500px;
@@ -62,3 +107,6 @@
   height: 50px;
   width: 50px;
 }
+
+
+
