@@ -29,11 +29,12 @@ class MealsController < ApplicationController
   end
 
   def grab_meals
-    meals = Meal.all
     return_data = []
+
+    meals = Meal.all.where.not(user_id: current_user.id)
     meals.each do |meal|
-      if current_user.id != meal.user.id
-        return_data << meal
+      if meal.ratings.where(user_id: current_user.id).size <= 0
+        return_data << [meal, meal.meal_photo.url(:medium), meal.goal.name]
       end
     end
 
