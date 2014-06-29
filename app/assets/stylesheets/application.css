@@ -53,8 +53,14 @@
 }
 
 .finished-voting {
-  visibility: hidden;
+  /*visibility: hidden;*/
+  /*display: none;*/
 }
+
+.finished-voting-show-hide {
+  display: none;
+}
+
  /* Users Show Page Styles */
 
  .chef-hat {

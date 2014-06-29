@@ -17,7 +17,7 @@ function startVoting(){
   console.log(meals);
   if (meals["responseJSON"] === undefined || meals["responseJSON"].length <= 0){
     $('.vote-template').empty();
-    $('.finished-voting').css('visibility', 'visible');
+    $('.finished-voting').removeClass('finished-voting-show-hide');
     console.log('done, yo');
   } else {
     var mealObject = meals["responseJSON"][0][0];
