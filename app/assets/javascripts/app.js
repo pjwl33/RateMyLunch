@@ -52,6 +52,7 @@ function addRating(num, mealID){
     }
   }).done(function(data){
     $('.vote-template').toggle('slide', {direction: 'left'}, 350);
+    window.scrollTo(0, 0);
     startVoting();
   });
 }
