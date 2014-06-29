@@ -18,6 +18,12 @@
     </div>
   </div>
 
+  <div class="row"><%= f.label :company_id %><br />
+    <div class="small-10 columns">
+      <%= f.select :company_id, Company.collect{|co| [co.name, co.id]} %>
+    </div>
+  </div>
+
   <div class="row">
     <div class="small-10 columns"><%= f.label :goal_description %><br />
     <%= f.text_area :goal_description %>

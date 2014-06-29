@@ -8,8 +8,8 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_paramaters, if: :devise_controller?
 
   def configure_permitted_paramaters
-    devise_parameter_sanitizer.for(:sign_up) << :name << :goal_description << :profile_photo
-    devise_parameter_sanitizer.for(:account_update) << :name << :goal_description << :profile_photo
+    devise_parameter_sanitizer.for(:sign_up) << :name << :goal_description << :profile_photo << :company_id
+    devise_parameter_sanitizer.for(:account_update) << :name << :goal_description << :profile_photo << :company_id
   end
 
 
