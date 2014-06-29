@@ -25,7 +25,6 @@ function setupClickEvents() {
     $('.leaderboard-meal img').css("margin-bottom", "0px");
     $('.leaderboard-meal img').each(function(){
       var newHeight = baseHeight * (parseFloat(this.id) / 5) + "px";
-      console.log(newHeight);
       $(this).animate({
         "margin-bottom": newHeight
       }, 800);
