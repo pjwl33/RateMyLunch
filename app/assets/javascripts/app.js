@@ -4,8 +4,8 @@
 })();
 
 function startVoting(){
-  $('.show-template').slideToggle(275).empty();
-  $('.vote-template').toggle('slide');
+  $('.show-template').empty();
+  $('.vote-template').toggle('slide', {direction: 'right'}, 350);
   var meals = $.ajax({
     method: 'GET',
     url: 'get_meals',
@@ -47,7 +47,7 @@ function addRating(num, mealID){
       meal_id: mealID
     }
   }).done(function(data){
-    $('.vote-template').toggle('slide');
+    $('.vote-template').toggle('slide', {direction: 'left'}, 350);
     startVoting();
   });
 }
