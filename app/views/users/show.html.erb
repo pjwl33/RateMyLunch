@@ -1,4 +1,4 @@
-<div class="row">
+  <div class="row">
   <div class="small-2 columns top-padding">
     <div class="small-avatar-wrap">
       <a href="<%= user_path(current_user) %>"><%= image_tag @user.profile_photo.url(:medium) %></a>
@@ -59,42 +59,52 @@
 
 <div class="vote-template" hidden>
   <div class="row">
-    <div class="small-4 small-offset-4 columns">
+    <div class="small-6 small-centered columns center-text">
       <button class="tiny"><%= link_to 'Submit a Meal', new_meal_path, class: 'white-text' %></button>
     </div>
   </div>
   <div class="row">
-    <div class="small-12 small-centered columns" id="vote-meal-pic">
+    <div class="small-10 small-centered columns center-text">
+      <h2>Vote on Meals!</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-12 small-centered columns bottom-padding" id="vote-meal-pic">
       <!-- meal image -->
     </div>
   </div>
   <div class="row">
-    <div class="small-8 small-centered columns" id="vote-meal-goalname">
+    <div class="small-10 columns bottom-padding" id="vote-meal-goalname">
       <!-- meal goal name -->
     </div>
   </div>
   <div class="row">
-    <div class="small-8 small-centered columns" id="vote-meal-comment">
+    <div class="small-10 columns bottom-padding" id="vote-meal-comment">
       <!-- meal comment -->
     </div>
   </div>
   <div class="row">
-    <div class="small-8 small-centered columns" id="vote-meal-ingredients">
+    <div class="small-10 columns bottom-padding" id="vote-meal-ingredients">
       <!-- meal ingredients -->
     </div>
   </div>
   <div class="row">
-    <div class="small-8 small-centered columns" id="vote-meal-nutrition">
+    <div class="small-10 columns bottom-padding" id="vote-meal-nutrition">
       <!-- nutrition info goes here -->
     </div>
   </div>
-  <span class="star-rating">
-    <input type="radio" name="rating" id="rating-1"><i></i>
-    <input type="radio" name="rating" id="rating-2"><i></i>
-    <input type="radio" name="rating" id="rating-3"><i></i>
-    <input type="radio" name="rating" id="rating-4"><i></i>
-    <input type="radio" name="rating" id="rating-5"><i></i>
-  </span>
+  <div class="row">
+    <div class="small-10 small-centered columns top-padding">
+        <span class="star-rating">
+          <input type="radio" name="rating" id="rating-1"><i></i>
+          <input type="radio" name="rating" id="rating-2"><i></i>
+          <input type="radio" name="rating" id="rating-3"><i></i>
+          <input type="radio" name="rating" id="rating-4"><i></i>
+          <input type="radio" name="rating" id="rating-5"><i></i>
+        </span>
+    </div>
+  </div>
+
 </div>
 
 <div class="finished-voting">
@@ -123,6 +133,6 @@
   </div>
 
 
-<div class="small-12 columns">
-	<%= button_to "Go To Leaderboard!", ratings_path, method: 'get', class: 'button [radius round]' %>
+<div class="small-12 small-centered columns top-padding center-text">
+	<%= button_to "Go To Leaderboard!", ratings_path, method: 'get', class: 'button radius' %>
 </div>

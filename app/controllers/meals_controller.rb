@@ -25,7 +25,7 @@ class MealsController < ApplicationController
       sodium: data["sodium"],
       carbs: data["total carbs"]
       )
-    redirect_to meal
+    redirect_to root_path
   end
 
   def grab_meals
