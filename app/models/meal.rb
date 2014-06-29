@@ -38,5 +38,6 @@ class Meal < ActiveRecord::Base
 
     return Sensum.nutrition_lookup(ingredients_array)
   end
+
 end
 
