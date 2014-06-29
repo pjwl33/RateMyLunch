@@ -9,16 +9,22 @@
 	<% end %>
 </div>
 
-<div class="small-12 columns">
-	<% if @meal %>
-	<h2>Today's Meal:</h2>
-	<%= image_tag @meal.meal_photo.url(:medium) %>
-	<div>
-		Rating: <%= @meal.rating ? @meal.rating : "No Ratings Yet" %>
-	</div>
+
+
+<div class="small-12 columns" align="center"> 
+	<% if @meal %> 
+		<h2>Today's Meal:</h2>
+		<%= image_tag @meal.meal_photo.url(:medium), :class => "todays-meal" %>
+		<div>
+			Rating: <%= @meal.rating ? @meal.rating : "No Ratings Yet" %>
+			<%= render 'star' %>
+		</div>
 	<% else %>
-	<%= link_to "Hey Chef, what did you make today?", new_meal_path %>
-	<% end %>
+		<div class="chef-hat">
+			<%= link_to image_tag("chefhat.png"), new_meal_path %>
+		</div>
+		<h2><%= link_to "Hey chef, what did you make today?", new_meal_path %></h2>
+<% end %>
 </div>
 
 <div class="small-10 columns">
@@ -31,5 +37,9 @@
 <div class="row">
 	<div class="small-10 columns">
 
+
 	</div>
+
+<div class="small-12 columns"> 
+	<%= button_to "Go To Leaderboard!", ratings_path, method: 'get', class: 'button [radius round]' %>
 </div>

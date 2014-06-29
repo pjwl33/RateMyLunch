@@ -13,6 +13,7 @@ class CreateMeals < ActiveRecord::Migration
       t.float :rating
       t.references :user
       t.references :goal
+      t.references :company
 
       t.timestamps
     end
