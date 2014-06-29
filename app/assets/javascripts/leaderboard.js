@@ -2,13 +2,14 @@ var individualCharts = {};
 
 function leaderboardReady(){
   setupClickEvents();
-  setupHoverEvents();
   var chartArray = $('.leaderboard-individual-chart');
   for (var i = 0; i < chartArray.length; i++) {
     individualCharts[chartArray[i].id.replace(/leaderboard-/, '')] = chartArray[i];
     chartArray[i].remove();
   }
-  $(".leaderboard-button").eq(0).click();
+  setTimeout(function(){
+    $(".leaderboard-button").eq(0).click();
+  }, 500);
 }
 
 function setupClickEvents() {
@@ -28,14 +29,6 @@ function setupClickEvents() {
       }, 800);
     });
   });
-}
-
-function setupHoverEvents() {
-  if ($(window).width() > 480) {
-    $(".single-bar").hover(function(){
-      console.log(this.id);
-    });
-  }
 }
 
 $(document).ready(leaderboardReady);
