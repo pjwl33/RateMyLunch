@@ -56,41 +56,18 @@
 }
 
 .user-mini-meal {
-  /*float: left;*/
   padding: 10px;
-  position:relative;
-  width: 120px;
-  height: 120px;
-
+  float: left;
+  color: grey;
 }
 
 .user-mini-meal img {
-  border-radius: 100%;
+  /*border-radius: 100%;*/
+  width: 75px;
+  height: 75px;
   opacity: .6;
-
 }
 
-.front {
-  z-index: 1;
-  position: relative;
-  width: 100px;
-  height: 100px;
-  text-align: center;
-  vertical-align: middle;
-  line-height: 100%;
-  float: left;
-}
-
-.back {
-  z-index: -1;
-  position: absolute;
-  width: 100px;
-  height: 100px;
-  text-align: center;
-  vertical-align: middle;
-  line-height: 100%;
-  /*float: right;*/
-}
 
 /* Leaderboard Styles - Ratings Index Page */
 
