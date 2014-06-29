@@ -1,12 +1,17 @@
-  <div class="small-6 columns">
-    <p><%= current_user.name %></p>
-    <%= image_tag @user.profile_photo.url(:thumb) %>
+<div class="row">
+  <div class="small-2 columns top-padding">
+    <div class="small-avatar-wrap">
+      <a href="<%= user_path(current_user) %>"><%= image_tag @user.profile_photo.url(:medium) %></a>
+    </div>
   </div>
-
+  <div class="small-8 small-offset-1 columns top-padding welcome-name">
+    <p>Welcome <%= current_user.name %></p>
+  </div>
+</div>
 
 <div class="small-12 columns" align="center">
   <div class="show-template">
-    <div class="small-12 columns">
+    <div class="small-12 small-centered columns">
   	<% if @meal %>
 		<h2>Today's Meal:</h2>
 		<%= image_tag @meal.meal_photo.url(:medium), :class => "todays-meal" %>
@@ -25,13 +30,13 @@
 		<div class="chef-hat">
 			<%= link_to image_tag("chefhat.png"), new_meal_path %>
 		</div>
-		<h2><%= link_to "Hey chef, what did you make today?", new_meal_path %></h2>
+		<h2><%= link_to "Hey chef, what did you make today?", new_meal_path, class: 'centered-text' %></h2>
 <% end %>
 </div>
 
 <div class="row">
-	<div class="small-10 columns">
-		<h3>My Meals This Week</h3>
+	<div class="small-10 small-centered columns">
+		<h3 class="center-text bottom-padding">My Meals This Week</h3>
 			<% i = 0 %>
 			<% @meals.each do |meal| %>
 				<div class="user-mini-meal">
@@ -45,10 +50,8 @@
 	</div>
 </div>
 
-  <div class="small-10 columns">
-  	<p><%= current_user.name %></p>
+  <div class="small-10 small-centered columns">
   	<button id="vote">Rate Lunches</button>
-  	<%= image_tag @user.profile_photo.url(:medium) %>
   </div>
 </div>
 </div>
@@ -56,9 +59,6 @@
 
 <div class="vote-template" hidden>
   <div class="row">
-    <div class="small-4 columns">
-      <button class="tiny"><%= link_to 'Profile', user_path(current_user), class: 'white-text' %></button>
-    </div>
     <div class="small-4 small-offset-4 columns">
       <button class="tiny"><%= link_to 'Submit a Meal', new_meal_path, class: 'white-text' %></button>
     </div>
@@ -107,18 +107,18 @@
     </div>
   </div>
   <div class="row">
+    <div class="small-8 small-centered columns center-text" id="vote-meal-goalname">
+      <h2>Good Job!</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-10 small-centered columns justify" id="vote-meal-comment">
+      <p>Congrats! You have finished voting on all meals today. Come back later to vote more.</p>
+    </div>
+  </div>
+  <div class="row">
     <div class="small-12 small-centered columns" id="vote-meal-pic">
       <img src="http://www.rawstory.com/rs/wp-content/uploads/2012/08/I-Voted-via-Shutterstock-615x345.jpg" />
-    </div>
-  </div>
-  <div class="row">
-    <div class="small-8 small-centered columns" id="vote-meal-goalname">
-      <h3>Good Job!</h3>
-    </div>
-  </div>
-  <div class="row">
-    <div class="small-8 small-centered columns" id="vote-meal-comment">
-      <p>Congrats! You have finished voting on all meals today. Come back later to vote more.</p>
     </div>
   </div>
 
