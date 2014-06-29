@@ -15,8 +15,7 @@ class User < ActiveRecord::Base
   validates_attachment_content_type :profile_photo, :content_type => /\Aimage\/.*\Z/
 
   def meals_since_sunday
-    tonight = DateTime.now.change(hour: 23, min: 59)
-    last_sunday_night = tonight - tonight.wday
+    last_sunday_night = Date.today.beginning_of_week(:monday).to_datetime.change(hour: 1)
     meals = self.meals.order(created_at: :desc)
     meals.select { |m| m.created_at > last_sunday_night }
   end
