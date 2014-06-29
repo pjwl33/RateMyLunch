@@ -42,9 +42,9 @@ g3 = Goal.create(name: 'Gain Muscle', desc: 'High protein, lean meals to help bu
 
 # Marsh seeds
 
-# file1 = File.open("/Users/stephenmarsh/Downloads/5brOTlm.jpg")
-# file2 = File.open("/Users/stephenmarsh/Downloads/5brOTlm.jpg")
-# file3 = File.open("/Users/stephenmarsh/Downloads/5brOTlm.jpg")
+file1 = File.open("/Users/stephenmarsh/Downloads/5brOTlm.jpg")
+file2 = File.open("/Users/stephenmarsh/Downloads/5brOTlm.jpg")
+file3 = File.open("/Users/stephenmarsh/Downloads/5brOTlm.jpg")
 
 # Jason seeds
 
