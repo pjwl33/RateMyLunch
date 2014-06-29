@@ -100,31 +100,35 @@
   margin: 0 auto;
   position: relative;
   text-align: center;
-  width: 80%;
+  width: 60%;
+  min-width: 380px;
+
 }
 
 .leaderboard-individual-chart {
   height: 495px;
   position: relative;
   text-align: center;
+  display: none;
 }
 
 .leaderboard-meal {
   bottom: 0;
+  margin: 0;
   position: absolute;
   width: 100%;
 }
 
-.leaderboard-individual-chart img {
-  background: blue;
-  border-radius: 100%;
+.leaderboard-meal>ul {
+  background: lightblue;
+  border-radius: 10px 10px 0 0;
   display: inline-block;
-  height: 50px;
+  list-style: none;
   margin: 0 1%;
+  vertical-align: bottom;
+}
+
+.leaderboard-individual-chart img {
+  border-radius: 100%;
+  height: 50px;
   width: 50px;
-}
-
-
-#test-div {
-  height: 500px;
-}
