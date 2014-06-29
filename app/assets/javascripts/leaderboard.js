@@ -7,7 +7,9 @@ function leaderboardReady(){
     individualCharts[chartArray[i].id.replace(/leaderboard-/, '')] = chartArray[i];
     chartArray[i].remove();
   }
-  $(".leaderboard-button").eq(0).click();
+  setTimeout(function(){
+    $(".leaderboard-button").eq(0).click();
+  }, 500);
 }
 
 function setupClickEvents() {
