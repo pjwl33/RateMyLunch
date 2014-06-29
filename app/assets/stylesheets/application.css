@@ -49,16 +49,40 @@
 
 }
 
-.leaderboard-chart {
+.leaderboard-controls {
+  text-align: center;
+}
+
+#leaderboard-chart {
   border: 1px solid black;
   height: 500px;
   margin: 0 auto;
   position: relative;
+  text-align: center;
   width: 80%;
 }
 
-.leaderboard-item {
+.leaderboard-individual-chart {
+  height: 495px;
+  position: relative;
+  text-align: center;
+}
+
+.leaderboard-meal {
+  bottom: 0;
+  position: absolute;
+  width: 100%;
+}
+
+.leaderboard-individual-chart img {
+  background: blue;
   border-radius: 100%;
+  display: inline-block;
   height: 50px;
+  margin: 0 1%;
   width: 50px;
+}
+
+#test-div {
+  height: 500px;
 }
