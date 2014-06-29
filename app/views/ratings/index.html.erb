@@ -5,17 +5,26 @@
 </div>
 
 <div id="leaderboard-chart">
-  <% @grouped_meals.each do |goal, meals| %>
-    <div class="leaderboard-individual-chart" id="leaderboard-<%= goal.name %>">
-      <h1><%= goal.name %></h1>
-      <ul class="inline-list leaderboard-meal">
-        <% meals.sort_by(&:rating).reverse.first(5).each do |meal| %>
-        <ul class="single-bar" id="<%= meal.user.name %>">
-          <li><%= meal.rating.round(1) %><i class="fa fa-star yellow-stars"></i></li>
-          <li><%= link_to image_tag(meal.meal_photo.url(:thumb), id: meal.rating), meal %></li>
+  <% if @grouped_meals.empty? %>
+    <% Goal.all.each do |goal| %>
+      <div class="leaderboard-individual-chart" id="leaderboard-<%= goal.name %>">
+        <h1><%= goal.name %></h1>
+        <h4>(No meals have been rated yet)</h4>
+      </div>
+    <% end %>
+  <% else %>
+    <% @grouped_meals.each do |goal, meals| %>
+      <div class="leaderboard-individual-chart" id="leaderboard-<%= goal.name %>">
+        <h1><%= goal.name %></h1>
+        <ul class="inline-list leaderboard-meal">
+          <% meals.sort_by(&:rating).reverse.first(5).each do |meal| %>
+          <ul class="single-bar" id="<%= meal.user.name %>">
+            <li><%= meal.rating.round(1) %><i class="fa fa-star yellow-stars"></i></li>
+            <li><%= link_to image_tag(meal.meal_photo.url(:thumb), id: meal.rating), meal %></li>
+          </ul>
+          <% end %>
         </ul>
-        <% end %>
-      </ul>
-    </div>
+      </div>
+    <% end %>
   <% end %>
 </div>
