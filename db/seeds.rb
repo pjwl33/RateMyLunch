@@ -46,6 +46,11 @@ g3 = Goal.create(name: 'Gain Muscle', desc: 'High protein, lean meals to help bu
 # file2 = File.open("/Users/stephenmarsh/Downloads/5brOTlm.jpg")
 # file3 = File.open("/Users/stephenmarsh/Downloads/5brOTlm.jpg")
 
+# Alex seeds
+# file1 = File.open("/Users/alexshook/Dropbox/beattadashi.jpg")
+# file2 = File.open("/Users/alexshook/Dropbox/beattadashi.jpg")
+# file3 = File.open("/Users/alexshook/Dropbox/beattadashi.jpg")
+
 users = [u1, u2, u3, u4, u5, u6]
 
 10.times do |i|
