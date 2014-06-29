@@ -10,17 +10,7 @@
   </div>
 
   <div class="show-template">
-    <div class="small-12 columns">
-     <% if @meal %>
-     <h2>Today's Meal:</h2>
-     <%= image_tag @meal.meal_photo.url(:medium) %>
-     <div>
-      Rating: <%= @meal.rating ? @meal.rating : "No Ratings Yet" %>
-    </div>
-    <% else %>
-    <%= link_to "Hey Chef, what did you make today?", new_meal_path %>
-    <% end %>
-  </div>
+
 <div class="small-12 columns" align="center">
 	<% if @meal %>
 		<h2>Today's Meal:</h2>
