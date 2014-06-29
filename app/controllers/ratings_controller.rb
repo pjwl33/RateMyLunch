@@ -2,8 +2,8 @@ class RatingsController < ApplicationController
 
 	def create
 		@user = current_user
-		@meal = Meal.find(params[:id])
-		@rating = Rating.create(user: @user, meal: @meal, vote_rating: params[:vote_rating])
+		@meal = Meal.find(params[:meal_id])
+		@rating = Rating.create(user: @user, meal: @meal, vote_rating: params[:rating])
 			respond_to do |format|
         format.html { }
         format.json { render json: @rating.to_json }

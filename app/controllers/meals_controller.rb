@@ -28,11 +28,15 @@ class MealsController < ApplicationController
   end
 
   def grab_meals
-    meals = Meal.all
     return_data = []
+
+    meals = Meal.all.where.not(user_id: current_user.id)
     meals.each do |meal|
-      if current_user.id != meal.user.id
-        return_data << meal
+      meal_ratings = Rating.find_by(meal_id: meal.id)
+      meal_ratings.each do |rating|
+        unless rating.user_id == current_user.id
+          return_data << meal
+        end
       end
     end
 

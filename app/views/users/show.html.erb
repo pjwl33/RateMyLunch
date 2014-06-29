@@ -9,17 +9,17 @@
     <% end %>
   </div>
 
-<div class="show-template">
-  <div class="small-12 columns">
-  	<% if @meal %>
-  	<h2>Today's Meal:</h2>
-  	<%= image_tag @meal.meal_photo.url(:medium) %>
-  	<div>
-  		Rating: <%= @meal.rating ? @meal.rating : "No Ratings Yet" %>
-  	</div>
-  	<% else %>
-  	<%= link_to "Hey Chef, what did you make today?", new_meal_path %>
-  	<% end %>
+  <div class="show-template">
+    <div class="small-12 columns">
+     <% if @meal %>
+     <h2>Today's Meal:</h2>
+     <%= image_tag @meal.meal_photo.url(:medium) %>
+     <div>
+      Rating: <%= @meal.rating ? @meal.rating : "No Ratings Yet" %>
+    </div>
+    <% else %>
+    <%= link_to "Hey Chef, what did you make today?", new_meal_path %>
+    <% end %>
   </div>
 
   <div class="small-10 columns">
@@ -27,7 +27,7 @@
   	<button id="vote">Vote Now Bitch</button>
   	<%= image_tag @user.profile_photo.url(:medium) %>
   </div>
-  </div>
+</div>
 </div>
 <hr>
 
@@ -65,4 +65,12 @@
       <!-- meal ingredients -->
     </div>
   </div>
+  <strong class="choice">Choose a rating</strong>
+  <span class="star-rating">
+    <input type="radio" name="rating" id="rating-1"><i></i>
+    <input type="radio" name="rating" id="rating-2"><i></i>
+    <input type="radio" name="rating" id="rating-3"><i></i>
+    <input type="radio" name="rating" id="rating-4"><i></i>
+    <input type="radio" name="rating" id="rating-5"><i></i>
+  </span>
 </div>
