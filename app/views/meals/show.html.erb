@@ -16,13 +16,13 @@
     <h4>Ingredients</h4>
     <% if @meal.calories %>
       <ul>
-        <li><strong>Calories: </strong><%= @meal.calories ? @meal.calories.round(1) : 'na' %></li>
+        <li><strong>Calories: </strong><%= @meal.calories ? @meal.calories.round(1) : 'N/A' %></li>
         <li><strong>Carbs: </strong> <%= @meal.carbs %> g</li>
         <li><strong>Fat: </strong><%= @meal.fat %> g</li>
         <li><strong>Protein: </strong><%= @meal.protein %> g</li>
         <li><strong>Fiber: </strong> <%= @meal.fiber %> g</li>
         <li><strong>Sugar: </strong> <%= @meal.sugar %> g</li>
-        <li><strong>Sodium: </strong> <%= @meal.sodium ? @meal.sodium * 1000 : 'na' %> mg</li>
+        <li><strong>Sodium: </strong> <%= @meal.sodium ? @meal.sodium * 1000 : 'N/A' %> mg</li>
       </ul>
     <% else %>
       <ul>

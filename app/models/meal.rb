@@ -15,9 +15,9 @@ class Meal < ActiveRecord::Base
     ingredients_array = []
     # If there are commas in input, split into array, else make array of string
     if ingredients_string.include?(", ")
-      ingredients_array = ingredients_string.split(", ")
+      ingredients_array = ingredients_string.downcase.split(", ")
     else
-      ingredients_array.push(ingredients_string)
+      ingredients_array.push(ingredients_string.downcase)
     end
 
     # check each element in array and split on with and remove and
@@ -38,5 +38,6 @@ class Meal < ActiveRecord::Base
 
     return Sensum.nutrition_lookup(ingredients_array)
   end
+
 end
 

@@ -14,6 +14,7 @@ function startVoting(){
   }).done(function(data){
     return data;
   });
+  console.log(meals);
   if (meals["responseJSON"] === undefined || meals["responseJSON"].length <= 0){
     $('.vote-template').empty();
     $('.finished-voting').css('visibility', 'visible');
