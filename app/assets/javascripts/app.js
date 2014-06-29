@@ -1,6 +1,7 @@
 (function(){
   console.log('loaded bro!');
   $('#vote').click(startVoting);
+  // $('img.meal-pic').css('height', '100%');
 })();
 
 function startVoting(){

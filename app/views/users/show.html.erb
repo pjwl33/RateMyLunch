@@ -1,7 +1,7 @@
   <div class="row">
   <div class="small-2 columns top-padding">
     <div class="small-avatar-wrap">
-      <a href="<%= user_path(current_user) %>"><%= image_tag @user.profile_photo.url(:medium) %></a>
+      <a href="<%= user_path(current_user) %>"><%= image_tag @user.profile_photo.url(:medium), :style => "max-width: 100%;" %></a>
     </div>
   </div>
   <div class="small-8 small-offset-1 columns top-padding welcome-name">
@@ -15,6 +15,11 @@
   	<% if @meal %>
     	<h2>Today's Meal:</h2>
   		<%= link_to image_tag(@meal.meal_photo.url(:medium), class: "todays-meal"), @meal %>
+    <!-- jason's link fix, the photo is a little bit too small -->
+      <!-- <div class="meal-pic-wrapper"> -->
+		    <!-- <a href="<%= meal_path(@meal) %>"><%#= image_tag @meal.meal_photo.url, class: 'meal-pic', :style => "max-width: 140%;" %></a> -->
+      <!-- </div> -->
+    <!-- end jason's link fix -->
   		<div>
   			<% if @meal.rating %>
   				<%= @meal.rating %>
