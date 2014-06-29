@@ -14,11 +14,18 @@ function startVoting(){
   }).done(function(data){
     return data;
   });
-  var mealObject = meals["responseJSON"][0][0];
-  var image = meals["responseJSON"][0][1];
-  var goalName = meals["responseJSON"][0][2];
-  appendMeal(mealObject, image, goalName);
+  if (meals["responseJSON"].length <= 0){
+    $('.vote-template').empty();
+    $('.finished-voting').css('visibility', 'visible');
+    console.log('done, yo');
+  } else {
+    var mealObject = meals["responseJSON"][0][0];
+    var image = meals["responseJSON"][0][1];
+    var goalName = meals["responseJSON"][0][2];
+    appendMeal(mealObject, image, goalName);
+  }
 }
+
 
 function appendMeal(meal, image, goalName){
   $('#vote-meal-pic').empty().append("<img src=" + image + "/>");

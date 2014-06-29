@@ -68,3 +68,29 @@
     <input type="radio" name="rating" id="rating-5"><i></i>
   </span>
 </div>
+
+<div class="finished-voting">
+  <div class="row">
+    <div class="small-4 columns">
+      <button class="tiny"><%= link_to 'Profile', user_path(current_user), class: 'white-text' %></button>
+    </div>
+    <div class="small-4 small-offset-4 columns">
+      <button class="tiny"><%= link_to 'Submit a Meal', new_meal_path, class: 'white-text' %></button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-12 small-centered columns" id="vote-meal-pic">
+      <img src="http://www.rawstory.com/rs/wp-content/uploads/2012/08/I-Voted-via-Shutterstock-615x345.jpg" />
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-8 small-centered columns" id="vote-meal-goalname">
+      <h3>Good Job!</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-8 small-centered columns" id="vote-meal-comment">
+      <p>Congrats! You have finished voting on all meals today. Come back later to vote more.</p>
+    </div>
+  </div>
+</div>
