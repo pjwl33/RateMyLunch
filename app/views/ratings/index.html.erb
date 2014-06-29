@@ -1,5 +1,5 @@
 <div class="leaderboard-controls">
-  <% @grouped_meals.keys.each do |goal| %>
+  <% Goal.all.each do |goal| %>
     <a class="button leaderboard-button" id="<%= goal.name %>"><%= goal.name %></a>
   <% end %>
 </div>
@@ -12,7 +12,7 @@
         <% meals.sort_by(&:rating).reverse.first(5).each do |meal| %>
         <ul class="single-bar" id="<%= meal.user.name %>">
           <li><%= meal.rating.round(1) %><i class="fa fa-star yellow-stars"></i></li>
-          <li><%= image_tag(meal.meal_photo.url(:thumb), id: meal.rating) %></li>
+          <li><%= link_to image_tag(meal.meal_photo.url(:thumb), id: meal.rating), meal %></li>
         </ul>
         <% end %>
       </ul>

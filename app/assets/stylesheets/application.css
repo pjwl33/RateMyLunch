@@ -89,7 +89,7 @@
   position: relative;
   text-align: center;
   width: 60%;
-  min-width: 380px;
+  min-width: 320px;
 
 }
 
@@ -120,3 +120,4 @@
   border-radius: 100%;
   height: 50px;
   width: 50px;
+}
