@@ -15,16 +15,19 @@ function startVoting(){
     console.log(data);
     return data;
   });
-  appendMeal(meals["responseJSON"][0][0], meals["responseJSON"][0][1]);
+  var mealObject = meals["responseJSON"][0][0];
+  var image = meals["responseJSON"][0][1];
+  var goalName = meals["responseJSON"][0][2];
+  appendMeal(mealObject, image, goalName);
 }
 
-function appendMeal(meal, image){
+function appendMeal(meal, image, goalName){
   console.log(meal["id"]);
   console.log(meal);
   $('#vote-meal-pic').empty().append("<img src=" + image + "/>");
-  $('#vote-meal-goalname').append('<p><p>').html(meal["goal_id"]);
-  $('#vote-meal-comment').append('<p></p>').html(meal["comment"]);
-  $('#vote-meal-ingredients').append('<p></p>').html(meal["ingredients"]);
+  $('#vote-meal-goalname').append('<p><p>').html("<strong>Goal Category: </strong>" + goalName);
+  $('#vote-meal-comment').append('<p></p>').html("<strong>Comment: </strong>" + meal["comment"]);
+  $('#vote-meal-ingredients').append('<p></p>').html("<strong>Description: </strong>" + meal["ingredients"]);
   $('#rating-1').attr("onclick", "addRating(1, " + meal['id'] + ")");
   $('#rating-2').attr("onclick", "addRating(2, " + meal['id'] + ")");
   $('#rating-3').attr("onclick", "addRating(3, " + meal['id'] + ")");

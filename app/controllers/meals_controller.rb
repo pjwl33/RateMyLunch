@@ -33,7 +33,7 @@ class MealsController < ApplicationController
     meals = Meal.all.where.not(user_id: current_user.id)
     meals.each do |meal|
       if meal.ratings.where(user_id: current_user.id).size <= 0
-        return_data << [meal, meal.meal_photo.url(:medium)]
+        return_data << [meal, meal.meal_photo.url(:medium), meal.goal.name]
       end
     end
 

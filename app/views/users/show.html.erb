@@ -24,7 +24,7 @@
 
   <div class="small-10 columns">
   	<p><%= current_user.name %></p>
-  	<button id="vote">Vote Now Bitch</button>
+  	<button id="vote">Rate Lunches</button>
   	<%= image_tag @user.profile_photo.url(:medium) %>
   </div>
 </div>
@@ -37,17 +37,12 @@
       <button class="tiny"><%= link_to 'Profile', user_path(current_user), class: 'white-text' %></button>
     </div>
     <div class="small-4 small-offset-4 columns">
-      <button class="tiny"><%= link_to 'Upload', new_meal_path, class: 'white-text' %></button>
+      <button class="tiny"><%= link_to 'Submit a Meal', new_meal_path, class: 'white-text' %></button>
     </div>
   </div>
   <div class="row">
     <div class="small-12 small-centered columns" id="vote-meal-pic">
       <!-- meal image -->
-    </div>
-  </div>
-  <div class="row">
-    <div class="small-8 small-centered columns" id="vote-meal-stars">
-      stars
     </div>
   </div>
   <div class="row">
