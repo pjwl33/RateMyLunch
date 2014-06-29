@@ -18,7 +18,7 @@ function startVoting(){
   console.log(meals);
   if (meals["responseJSON"] === undefined || meals["responseJSON"].length <= 0){
     $('.vote-template').empty();
-    $('.finished-voting').css('visibility', 'visible');
+    $('.finished-voting').removeClass('finished-voting-show-hide');
     console.log('done, yo');
   } else {
     var mealObject = meals["responseJSON"][0][0];
@@ -34,7 +34,7 @@ function appendMeal(meal, image, goalName){
   $('#vote-meal-comment').append('<p></p>').html("<strong>Comment: </strong>" + meal.comment);
   $('#vote-meal-ingredients').append('<p></p>').html("<strong>Description: </strong>" + meal.ingredients);
 
-  $('#vote-meal-nutrition').append('<p></p>').html("<strong>Calories: </strong>" + meal.calories.toFixed(1) + "<br>" + "<strong>Fat: </strong>" + meal.fat + "g<br>" + "<strong>Protein: </strong>" + meal.protein + " g<br>" + "<strong>Fiber: </strong>" + meal.fiber + "g<br>" + "<strong>Sugar: </strong>" + meal.sugar + "g<br>" + "<strong>Carbs: </strong>" + meal.carbs + "g<br>" + "<strong>Sodium: </strong>" + meal.sodium * 1000 + "mg");
+  $('#vote-meal-nutrition').append('<p></p>').html("<strong>Calories: </strong>" + meal.calories + "<br>" + "<strong>Fat: </strong>" + meal.fat + "g<br>" + "<strong>Protein: </strong>" + meal.protein + " g<br>" + "<strong>Fiber: </strong>" + meal.fiber + "g<br>" + "<strong>Sugar: </strong>" + meal.sugar + "g<br>" + "<strong>Carbs: </strong>" + meal.carbs + "g<br>" + "<strong>Sodium: </strong>" + meal.sodium + "mg");
 
   for (var i = 1; i <= 5; i++){
     $('#rating-' + i).attr('onclick', 'addRating(' + i + ', ' + meal.id + ')');
