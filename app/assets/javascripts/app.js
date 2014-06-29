@@ -4,15 +4,14 @@
 })();
 
 function startVoting(){
-  $('.show-template').empty();
-  $('.vote-template').css('visibility', 'visible');
+  $('.show-template').slideToggle(275).empty();
+  $('.vote-template').toggle('slide');
   var meals = $.ajax({
     method: 'GET',
     url: 'get_meals',
     dataType: 'JSON',
     async: false
   }).done(function(data){
-    console.log(data);
     return data;
   });
   var mealObject = meals["responseJSON"][0][0];
@@ -22,17 +21,13 @@ function startVoting(){
 }
 
 function appendMeal(meal, image, goalName){
-  console.log(meal["id"]);
-  console.log(meal);
   $('#vote-meal-pic').empty().append("<img src=" + image + "/>");
   $('#vote-meal-goalname').append('<p><p>').html("<strong>Goal Category: </strong>" + goalName);
   $('#vote-meal-comment').append('<p></p>').html("<strong>Comment: </strong>" + meal["comment"]);
   $('#vote-meal-ingredients').append('<p></p>').html("<strong>Description: </strong>" + meal["ingredients"]);
-  $('#rating-1').attr("onclick", "addRating(1, " + meal['id'] + ")");
-  $('#rating-2').attr("onclick", "addRating(2, " + meal['id'] + ")");
-  $('#rating-3').attr("onclick", "addRating(3, " + meal['id'] + ")");
-  $('#rating-4').attr("onclick", "addRating(4, " + meal['id'] + ")");
-  $('#rating-5').attr("onclick", "addRating(5, " + meal['id'] + ")");
+  for (var i = 1; i <= 5; i++){
+    $('#rating-' + i).attr('onclick', 'addRating(' + i + ', ' + meal['id'] + ')');
+  }
 }
 
 function addRating(num, mealID){
@@ -45,7 +40,7 @@ function addRating(num, mealID){
       meal_id: mealID
     }
   }).done(function(data){
-    console.log(data);
+    $('.vote-template').toggle('slide');
     startVoting();
   });
 }

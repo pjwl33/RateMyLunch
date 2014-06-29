@@ -47,15 +47,6 @@
 .star-rating i ~ i ~ i ~ i ~ i {
   width: 100%;
 }
-.choice {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  text-align: center;
-  padding: 20px;
-  display: block;
-}
 
 body {
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
