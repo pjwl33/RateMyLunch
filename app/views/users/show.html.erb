@@ -1,7 +1,7 @@
   <div class="row">
   <div class="small-2 columns top-padding">
     <div class="small-avatar-wrap">
-      <a href="<%= user_path(current_user) %>"><%= image_tag @user.profile_photo.url(:medium) %></a>
+      <a href="<%= user_path(current_user) %>"><%= image_tag @user.profile_photo.url(:medium), :style => "max-width: 100%;" %></a>
     </div>
   </div>
   <div class="small-8 small-offset-1 columns top-padding welcome-name">
@@ -14,7 +14,9 @@
     <div class="small-12 small-centered columns">
   	<% if @meal %>
     	<h2>Today's Meal:</h2>
-  		<%= image_tag @meal.meal_photo.url(:medium), :class => "todays-meal" %>
+      <div class="meal-pic-wrapper">
+		    <%= image_tag @meal.meal_photo.url, class: 'meal-pic', :style => "max-width: 140%;" %>
+      </div>
   		<div>
   			<% if @meal.rating %>
   				<%= @meal.rating %>
@@ -22,7 +24,7 @@
   				<i class="fa fa-trophy"></i> <%= @company_meals.find_index(@meal) %>
   			<% else %>
   				"No Ratings Yet"
-  			<% end %>	
+  			<% end %>
   		</div>
 	<% else %>
 		<div class="chef-hat">

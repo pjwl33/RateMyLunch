@@ -4,7 +4,9 @@
   </div>
 </div>
 <div class="small-8 small-centered columns center-text bottom-padding">
-    <%= image_tag @meal.meal_photo.url(:medium) %>
+  <div class="meal-pic-wrapper">
+    <%= image_tag @meal.meal_photo.url(:medium), :style => "max-width: 150%;" %>
+  </div>
 </div>
 <div class="row">
   <div class="small-6 columns">
