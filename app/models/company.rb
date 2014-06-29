@@ -8,10 +8,11 @@ class Company < ActiveRecord::Base
   end
 
   def meals_since_sunday_sorted
-    tonight = DateTime.now.change(hour: 23, min: 59)
-    last_sunday_night = tonight - tonight.wday
+    last_sunday_night = Date.today.beginning_of_week(:monday).to_datetime.change(hour: 1)
     meals = self.meals.order(rating: :desc)
     meals.select { |m| m.created_at > last_sunday_night }
   end
 
 end
+
+
