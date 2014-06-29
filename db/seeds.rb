@@ -36,9 +36,9 @@ g2 = Goal.create(name: 'Eat Healthy', desc: 'Well-balanced meals that hit all of
 g3 = Goal.create(name: 'Gain Muscle', desc: 'High protein, lean meals to help build muscle')
 
 # Jesse Seeds
-file1 = File.open("/Users/jemise111/Desktop/Media/sessler_pic2.jpg")
-file2 = File.open("/Users/jemise111/Desktop/Media/photostrip.jpg")
-file3 = File.open("/Users/jemise111/Desktop/Media/PA070001.JPG")
+# file1 = File.open("/Users/jemise111/Desktop/Media/sessler_pic2.jpg")
+# file2 = File.open("/Users/jemise111/Desktop/Media/photostrip.jpg")
+# file3 = File.open("/Users/jemise111/Desktop/Media/PA070001.JPG")
 
 # Marsh seeds
 
