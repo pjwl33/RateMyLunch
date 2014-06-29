@@ -217,4 +217,8 @@ img {
     border-radius: 100%;
   }
 
+  .resizable-image {
+    max-width: 50%;
+  }
+
 }
