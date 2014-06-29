@@ -3,21 +3,20 @@
 	<%= image_tag @user.profile_photo.url(:thumb) %>
 </div>
 
-<div class="small-6 columns">
-	<% if current_user %>
-	<%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
-	<% end %>
-</div>
-
 <div class="small-12 columns" align="center"> 
 	<% if @meal %> 
 		<h2>Today's Meal:</h2>
 		<%= image_tag @meal.meal_photo.url(:medium), :class => "todays-meal" %>
 		<div>
-			<%= render partial:'star', locals: {rating: @meal.rating} %>
-			<%= @meal.rating ? @meal.rating : "No Ratings Yet" %>
+			<% if @meal.rating %> 
+				<%= @meal.rating %>
+				<%= render partial:'star', locals: {rating: @meal.rating} %>
+				<i class="fa fa-trophy"></i> <%= @company_meals.find_index(@meal) %>
+			<% else %> 
+				"No Ratings Yet"
+			<% end %>
 			<br>
-			<i class="fa fa-trophy"></i> <%= @company_meals.find_index(@meal) %>
+			
 		</div>
 	<% else %>
 		<div class="chef-hat">
