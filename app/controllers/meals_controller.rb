@@ -22,7 +22,7 @@ class MealsController < ApplicationController
       "proteins" => (0..25).to_a.sample,
       "total fibres" => (0..25).to_a.sample,
       "sugar" => (0..80).to_a.sample,
-      "sodium" => (0..2500).to_a.sample,
+      "sodium" => (0..50).to_a.sample,
       "total carbs" => (0..300).to_a.sample
     }
     # data = Meal.check_nutritional_facts(params[:meal][:ingredients])
